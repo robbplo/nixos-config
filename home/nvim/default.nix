@@ -1,6 +1,10 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    elixir
+    elixir-ls
+  ];
   programs.fzf.enable = true;
   programs.neovim = {
     enable = true;
@@ -8,6 +12,28 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    extraPackages = with pkgs; [
+      # Language servers
+      nodePackages_latest.bash-language-server
+      nodePackages_latest.typescript-language-server
+      vscode-langservers-extracted # HTML, CSS, JSON, ESlint
+      rust-analyzer
+      yaml-language-server
+      docker-compose-language-service
+      dockerfile-language-server-nodejs
+      erlang_26
+      lua-language-server
+      gopls
+      nixd
+
+      # Formatters
+      nixfmt-rfc-style
+      biome
+      nodePackages.prettier
+      shfmt
+      stylelint
+      stylua
+    ];
     extraConfig = ''
       luafile ${./lua/packer_init.lua}
 

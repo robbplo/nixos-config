@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{  pkgs, dbeaver-last, ... }:
 
 {
   home.packages = with pkgs; [
@@ -18,6 +18,8 @@
 
     # build tools
     gnumake
+    automake
+    autoconf
     just
     gcc
     ninja
@@ -46,7 +48,7 @@
     cargo
 
     # db related
-    dbeaver-bin
+    #dbeaver-bin
     mycli
     pgcli
 

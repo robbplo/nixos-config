@@ -25,10 +25,9 @@
       {
         name = "gitnow";
         src = builtins.fetchGit {
-          owner = "joseluisq";
-          repo = "gitnow";
+          url = "https://github.com/joseluisq/gitnow.git";
+          ref = "HEAD";
           rev = "91bda1d0ffad2d68b21a1349f9b55a8cb5b54f35";
-          sha256 = "PuorwmaZAeG6aNWX4sUTBIE+NMdn1iWeea3rJ2RhqRQ=";
         };
       }
       # Nice prompt, needs runtime config though

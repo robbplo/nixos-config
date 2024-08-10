@@ -184,8 +184,8 @@ local servers = {
   'cssls',
   'docker_compose_language_service',
   'dockerls',
-  'emmet_ls',
   'eslint',
+  'elixirls',
   'gdscript',
   'gleam',
   'gopls',
@@ -194,10 +194,8 @@ local servers = {
   'lua_ls',
   'ocamllsp',
   'phpactor',
-  'rnix',
+  'nixd',
   'rust_analyzer',
-  'tailwindcss',
-  'templ',
   'tsserver',
   'yamlls',
 }
@@ -219,5 +217,5 @@ lspconfig['gleam'].setup {
 lspconfig['elixirls'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { vim.fn.stdpath('data') .. '/mason/bin/elixir-ls' }
+  cmd = { 'elixir-ls' }
 }

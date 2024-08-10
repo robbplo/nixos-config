@@ -2,8 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-
+{ pkgs, inputs, ... }:
 {
   imports =
     [
@@ -73,11 +72,17 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # Enable docker
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.robbin = {
     isNormalUser = true;
     description = "Robbin";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       #  thunderbird
     ];
@@ -101,11 +106,13 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = (with pkgs; [
     neovim
     wget
     git
     curl
+  ]) ++ [
+    inputs.dbeaver-last.legacyPackages.x86_64-linux.pkgs.dbeaver-bin
   ];
 
   environment.variables.EDITOR = "nvim";
