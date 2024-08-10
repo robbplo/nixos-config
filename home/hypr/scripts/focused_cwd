@@ -1,0 +1,15 @@
+#!/usr/bin/env -S fish -N
+# Get the cwd of the currently focused terminal window
+
+set -l IFS
+set window (hyprctl activewindow)
+set class (echo $window | grep 'class' | awk '{print $NF}')
+if [ $class != "kitty" ]
+  echo "$HOME"
+end
+set pid (echo $window | grep 'pid' | awk '{print $NF}')
+set ppid (pgrep --newest --parent "$pid")
+set cwd (readlink /proc/"$ppid"/cwd || echo "$HOME")
+
+[ -d "$cwd" ] && echo "$cwd" || echo "$HOME"
+
