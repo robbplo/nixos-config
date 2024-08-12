@@ -15,6 +15,7 @@
     libnotify
     xdg-utils
     grc
+    lsof
 
     # build tools
     gnumake

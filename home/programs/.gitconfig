@@ -1,41 +1,47 @@
+# vim: ft=gitconfig
+
 [user]
   email = robbplo@gmail.com
   name = Robbin Ploeger
 
 [includeIf "hasconfig:remote.*.url:git@gitlab.betty.services:*/**"]
-  path = .gitconfig.betty
+  [user]
+    email = robbin.ploeger@bettyblocks.com
+    name = Robbin Ploeger
 [includeIf "hasconfig:remote.*.url:https://gitlab.betty.services/**"]
-  path = .gitconfig.betty
+  [user]
+    email = robbin.ploeger@bettyblocks.com
+    name = Robbin Ploeger
 
 [credential "https://github.com"]
-	helper =
-	helper = !/usr/bin/gh auth git-credential
+	helper = !gh auth git-credential
 [credential "https://gitlab.betty.services"]
-	helper =
-	helper = !/usr/bin/glab auth git-credential
+	helper = !glab auth git-credential
 
 ### Delta config
 [core]
-    pager = delta
+  pager = delta
 
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 
 [delta]
-    line-numbers = true
-    navigate = true    # use n and N to move between diff sections
-    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
-    side-by-side = true
+  line-numbers = true
+  navigate = true    # use n and N to move between diff sections
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+  side-by-side = true
 
 [merge]
-    conflictstyle = diff3
+  conflictstyle = diff3
 
 [diff]
-    colorMoved = default
+  colorMoved = default
+
 [init]
-	defaultBranch = main
+  defaultBranch = main
+
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
