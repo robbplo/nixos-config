@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, inputs, ... }:
+{ pkgs, lib, inputs, ... }:
 {
   imports =
     [
@@ -17,7 +17,10 @@
   networking.hostName = "stinkpad";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    dns = "dnsmasq";
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -61,22 +64,37 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
     jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    wireplumber.extraConfig.bluetoothEnhancements = {
+      "monitor.bluez.properties" = {
+        "bluez5.enable-sbc-xq" = true;
+        "bluez5.enable-msbc" = true;
+        "bluez5.enable-hw-volume" = true;
+        "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
+      };
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   # Enable docker
+  #virtualisation.docker.enable = true;
+
   virtualisation.docker.rootless = {
     enable = true;
     setSocketVariable = true;
   };
+
+  # Setup docker tld for Ubunty
+  environment.etc = {
+    "NetworkManager/dnsmasq.d/00-ubunty.conf" = {
+      text = "address=/docker/172.16.0.1";
+      mode = "0440";
+    };
+  };
+  boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 53;
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.robbin = {
@@ -87,6 +105,8 @@
       #  thunderbird
     ];
   };
+
+  users.groups.docker.members = [ "robbin" ];
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -129,12 +149,19 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+  # Bluetooth GUI
+  services.blueman.enable = true;
+
+
+
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedUDPPorts = [ 53 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
