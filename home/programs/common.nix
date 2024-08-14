@@ -1,4 +1,4 @@
-{  pkgs, dbeaver-last, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -16,6 +16,7 @@
     xdg-utils
     grc
     lsof
+    sqlite
 
     # build tools
     gnumake
@@ -29,6 +30,7 @@
 
     # cloud native
     docker-compose
+    lazydocker
     kubectl
     kubectx
     kubelogin
@@ -72,6 +74,13 @@
 
     ssh.enable = true;
     aria2.enable = true;
+
+    # Fix the "command not found" error in command line
+    nix-index = {
+      enable = true;
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+    };
   };
 
   services = {

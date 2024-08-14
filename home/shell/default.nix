@@ -31,11 +31,20 @@
         };
       }
       # Nice prompt, needs runtime config though
-      { name = "tide"; src = pkgs.fishPlugins.tide.src; }
+      {
+        name = "tide";
+        src = pkgs.fishPlugins.tide.src;
+      }
       # Pure-fish zoxide clone
-      { name = "z"; src = pkgs.fishPlugins.z.src; }
+      {
+        name = "z";
+        src = pkgs.fishPlugins.z.src;
+      }
       # Colorizer for common commands
-      { name = "grc"; src = pkgs.fishPlugins.grc.src; }
+      {
+        name = "grc";
+        src = pkgs.fishPlugins.grc.src;
+      }
     ];
     interactiveShellInit = ''
       set fish_greeting # Disable greeting

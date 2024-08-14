@@ -1,10 +1,11 @@
-{ pkgs,  ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     hyprlock
     hyprpaper
     hypridle
     wlogout
+    grimblast
   ];
 
   home.file.".config/hypr/wallpaper.png".source = ./wallpaper.png;
