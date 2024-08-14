@@ -52,6 +52,7 @@
 
     # db related
     #dbeaver-bin
+    mysql84
     mysql-shell
     mycli
     pgcli

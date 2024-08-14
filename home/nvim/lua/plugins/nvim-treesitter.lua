@@ -37,7 +37,7 @@ nvim_treesitter.setup {
   highlight = { enable = true },
   indent = {
     -- todo; fix that only gdscript is disabled
-    disable = { 'gdscript' },
+    -- disable = { 'gdscript' },
   },
   textobjects = {
     select = {
