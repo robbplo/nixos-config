@@ -2,13 +2,17 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, lib, inputs, ... }:
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+{
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -21,6 +25,8 @@
     enable = true;
     dns = "dnsmasq";
   };
+  # Disable ipv6
+  networking.enableIPv6 = false;
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -70,7 +76,12 @@
         "bluez5.enable-sbc-xq" = true;
         "bluez5.enable-msbc" = true;
         "bluez5.enable-hw-volume" = true;
-        "bluez5.roles" = [ "hsp_hs" "hsp_ag" "hfp_hf" "hfp_ag" ];
+        "bluez5.roles" = [
+          "hsp_hs"
+          "hsp_ag"
+          "hfp_hf"
+          "hfp_ag"
+        ];
       };
     };
   };
@@ -79,12 +90,7 @@
   # services.xserver.libinput.enable = true;
 
   # Enable docker
-  #virtualisation.docker.enable = true;
-
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
+  virtualisation.docker.enable = true;
 
   # Setup docker tld for Ubunty
   environment.etc = {
@@ -93,16 +99,14 @@
       mode = "0440";
     };
   };
-  boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 53;
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.robbin = {
     isNormalUser = true;
     description = "Robbin";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-      #  thunderbird
+    extraGroups = [
+      "networkmanager"
+      "wheel"
     ];
   };
 
@@ -122,18 +126,21 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = (with pkgs; [
-    neovim
-    wget
-    git
-    curl
-  ]) ++ [
-    inputs.dbeaver-last.legacyPackages.x86_64-linux.pkgs.dbeaver-bin
-  ];
+  environment.systemPackages =
+    (with pkgs; [
+      neovim
+      wget
+      git
+      curl
+    ])
+    ++ [ inputs.dbeaver-last.legacyPackages.x86_64-linux.pkgs.dbeaver-bin ];
 
   environment.variables.EDITOR = "nvim";
 
@@ -152,16 +159,11 @@
   # Bluetooth GUI
   services.blueman.enable = true;
 
-
-
-
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  networking.firewall.allowedUDPPorts = [ 53 ];
+  # networking.firewall.allowedUDPPorts = [ 53 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

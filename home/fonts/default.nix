@@ -7,8 +7,6 @@
     recursive = true;
   };
 
-  home.packages = with pkgs; [
-    nerdfonts
-  ];
+  home.packages = with pkgs; [ nerdfonts ];
 
 }
