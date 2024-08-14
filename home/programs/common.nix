@@ -62,6 +62,8 @@
     obsidian
     wofi
     godot_4
+    webcord
+    beekeeper-studio
   ];
 
   programs = {
@@ -74,13 +76,6 @@
 
     ssh.enable = true;
     aria2.enable = true;
-
-    # Fix the "command not found" error in command line
-    nix-index = {
-      enable = true;
-      enableBashIntegration = true;
-      enableFishIntegration = true;
-    };
   };
 
   services = {
