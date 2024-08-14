@@ -8,6 +8,8 @@
 
     ags.url = "github:Aylur/ags";
     dbeaver-last.url = "github:nixos/nixpkgs/4d10225ee46c0ab16332a2450b493e0277d1741a";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
   };
 
   outputs =

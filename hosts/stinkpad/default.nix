@@ -2,12 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{
-  pkgs,
-  lib,
-  inputs,
-  ...
-}:
+{ pkgs, inputs, ... }:
 {
   imports = [
     # Include the results of the hardware scan.
@@ -119,7 +114,10 @@
   programs.fish.enable = true;
 
   # Hyprland window manager
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
   # Hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -139,8 +137,12 @@
       wget
       git
       curl
+      networkmanagerapplet
     ])
-    ++ [ inputs.dbeaver-last.legacyPackages.x86_64-linux.pkgs.dbeaver-bin ];
+    ++ [
+      inputs.dbeaver-last.legacyPackages.${pkgs.system}.pkgs.dbeaver-bin
+      inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+    ];
 
   environment.variables.EDITOR = "nvim";
 
@@ -158,6 +160,11 @@
   # services.openssh.enable = true;
   # Bluetooth GUI
   services.blueman.enable = true;
+
+  nix.settings = {
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
