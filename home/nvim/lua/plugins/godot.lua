@@ -1,3 +1,8 @@
+-- External editor setup for Godot
+--
+-- Godot settings:
+-- text_editor/external/exec_flags: --server /tmp/godotnvim --remote-send "<esc>:n {file}<CR>:call cursor({line},{col})<CR>"
+
 -- Automatically start rpc server for Godot projects
 local start_server = function()
   local server_path = "/tmp/godotnvim"

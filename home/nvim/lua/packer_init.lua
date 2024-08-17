@@ -83,9 +83,7 @@ return require('packer').startup(function(use)
   --use { "nvim-treesitter/nvim-treesitter-textobjects", requires = "nvim-treesitter/nvim-treesitter" }
 
   -- Tab bar
-  -- use { 'romgrk/barbar.nvim', requires = 'kyazdani42/nvim-web-devicons' }
-  -- temp bugfix fork:
-  use { 'taketwo/barbar.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+  use { 'romgrk/barbar.nvim', requires = 'kyazdani42/nvim-web-devicons' }
 
 
   -- Statusline

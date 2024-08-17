@@ -23,21 +23,11 @@ vim.filetype.add({
 
 -- See: https://github.com/nvim-treesitter/nvim-treesitter#quickstart
 nvim_treesitter.setup {
-  -- A list of parser names, or "all"
   auto_install = true,
-  ignore_install = {},
-  modules = {},
-  ensure_installed = {
-    'bash', 'c', 'css', 'html', 'javascript', 'json', 'lua', 'python',
-    'typescript', 'vim', 'php', 'elixir', 'heex', 'nix', 'go', 'yaml', 'rust',
-    'dockerfile', 'gleam'
-  },
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
   highlight = { enable = true },
   indent = {
-    -- todo; fix that only gdscript is disabled
-    -- disable = { 'gdscript' },
+    enable = true,
+    disable = { 'gdscript' },
   },
   textobjects = {
     select = {
