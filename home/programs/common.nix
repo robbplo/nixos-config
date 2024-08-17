@@ -1,72 +1,87 @@
 { pkgs, ... }:
 
+let
+  godot_43 = pkgs.godot_4.overrideAttrs (old: {
+    src = pkgs.fetchFromGitHub {
+      owner = "godotengine";
+      repo = "godot";
+      rev = "77dcf97d82cbfe4e4615475fa52ca03da645dbd8";
+      hash = "sha256-v2lBD3GEL8CoIwBl3UoLam0dJxkLGX0oneH6DiWkEsM=";
+    };
+  });
+in
 {
-  home.packages = with pkgs; [
-    # archives
-    zip
-    unzip
-    p7zip
+  home.packages =
+    (with pkgs; [
+      # utils
+      yq-go # https://github.com/mikefarah/yq
+      nix-prefetch-git
+      moar
+      ov
 
-    # utils
-    yq-go # https://github.com/mikefarah/yq
-    nix-prefetch-git
+      # GUI
+      google-chrome
+      # dbeaver-bin
+      _1password
+      _1password-gui
+      slack
+      obsidian
+      webcord
+      beekeeper-studio
+      wofi
 
-    # misc
-    libnotify
-    xdg-utils
-    grc
-    lsof
-    sqlite
+      # archives
+      zip
+      unzip
+      p7zip
 
-    # build tools
-    gnumake
-    automake
-    autoconf
-    just
-    gcc
-    ninja
-    meson
-    mise
+      # misc
+      libnotify
+      xdg-utils
+      grc
+      lsof
+      sqlite
 
-    # cloud native
-    docker-compose
-    lazydocker
-    kubectl
-    kubectx
-    kubelogin
-    azure-cli
+      # build tools
+      gnumake
+      automake
+      autoconf
+      just
+      gcc
+      ninja
+      meson
+      mise
 
-    # javascript
-    nodejs
-    nodePackages.npm
-    nodePackages.pnpm
-    bun
-    yarn
+      # cloud native
+      docker-compose
+      lazydocker
+      kubectl
+      kubectx
+      kubelogin
+      azure-cli
 
-    # snake_language
-    python3
+      # javascript
+      nodejs
+      nodePackages.npm
+      nodePackages.pnpm
+      bun
+      yarn
 
-    # rust
-    rustc
-    cargo
+      # snake_language
+      python3
 
-    # db related
-    #dbeaver-bin
-    mysql84
-    mysql-shell
-    mycli
-    pgcli
+      # rust
+      rustc
+      cargo
 
-    google-chrome
-    _1password
-    _1password-gui
-    slack
-    obsidian
-    wofi
-    godot_4
-    webcord
-    beekeeper-studio
-  ];
+      # db related
+      mysql84
+      mysql-shell
+      mycli
+      pgcli
+
+    ])
+    ++ [ godot_43 ];
 
   programs = {
     bat.enable = true;

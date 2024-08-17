@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 {
   # Enable NetworkManager
   networking.networkmanager = {
@@ -6,9 +6,7 @@
     dns = "dnsmasq";
   };
 
-  environment.systemPackages = [
-    pkgs.networkmanagerapplet
-  ];
+  environment.systemPackages = [ pkgs.networkmanagerapplet ];
 
   # Disable ipv6
   networking.enableIPv6 = false;
