@@ -47,12 +47,6 @@ return require('packer').startup(function(use)
   use 'rcarriga/nvim-dap-ui'
   use 'jay-babu/mason-nvim-dap.nvim'
 
-  -- File explorer
-  use "lambdalisue/fern.vim"
-
-  -- Copilot
-  -- use "github/copilot.vim"
-
   -- Snippets
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'

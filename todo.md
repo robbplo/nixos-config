@@ -10,3 +10,4 @@
 
 ## Hyprland
 - fix hyprpaper shutting down
+- fix red screen appearing, probably when waking from suspend?

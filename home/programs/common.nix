@@ -41,6 +41,8 @@ in
       grc
       lsof
       sqlite
+      inotify-tools
+      neofetch
 
       # build tools
       gnumake
@@ -59,6 +61,8 @@ in
       kubectx
       kubelogin
       azure-cli
+      openshift
+      stern
 
       # javascript
       nodejs
