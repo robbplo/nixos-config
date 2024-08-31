@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-
+  home.packages = [ pkgs.nix-your-shell ];
   programs.fish = {
     enable = true;
     plugins = [
@@ -36,7 +36,10 @@
       }
     ];
     interactiveShellInit = ''
-      set fish_greeting # Disable greeting
+      # Disable greeting
+      set fish_greeting
+      # Use fish for nix shell
+      nix-your-shell fish | source
     '';
     shellAbbrs = {
       ga = "git add";
@@ -64,7 +67,9 @@
       c = "wl-copy";
       startags = "hyprctl dispatch exec /home/robbin/.config/hypr/scripts/start_ags";
       hyx = "hyprctl dispatch exec --";
-      rb = "sudo nixos-rebuild switch --flake ~/nixos-config#stinkpad --fast";
+      rb = "just -f ~/nixos-config/Justfile";
+      k = "kubectl";
+      ssh = "kitten ssh";
     };
   };
 }

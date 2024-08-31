@@ -18,12 +18,14 @@ in
       nix-prefetch-git
       moar
       ov
+      parallel
 
       # GUI
       google-chrome
       # dbeaver-bin
       _1password
       _1password-gui
+      spotifywm
       slack
       obsidian
       webcord
@@ -63,6 +65,7 @@ in
       azure-cli
       openshift
       stern
+      k9s
 
       # javascript
       nodejs
@@ -70,6 +73,11 @@ in
       nodePackages.pnpm
       bun
       yarn
+
+      # elixir
+      beam.packages.erlang_27.erlang
+      beam.packages.erlang_27.elixir_1_17
+      beam.packages.erlang_27.elixir-ls
 
       # snake_language
       python3
@@ -97,12 +105,5 @@ in
 
     ssh.enable = true;
     aria2.enable = true;
-  };
-
-  services = {
-    # syncthing.enable = true;
-
-    # auto mount usb drives
-    # udiskie.enable = true;
   };
 }
