@@ -1,15 +1,5 @@
 { pkgs, ... }:
 
-let
-  godot_43 = pkgs.godot_4.overrideAttrs (old: {
-    src = pkgs.fetchFromGitHub {
-      owner = "godotengine";
-      repo = "godot";
-      rev = "77dcf97d82cbfe4e4615475fa52ca03da645dbd8";
-      hash = "sha256-v2lBD3GEL8CoIwBl3UoLam0dJxkLGX0oneH6DiWkEsM=";
-    };
-  });
-in
 {
   home.packages =
     (with pkgs; [
@@ -31,6 +21,7 @@ in
       webcord
       beekeeper-studio
       wofi
+      godot_4
 
       # archives
       zip
@@ -92,8 +83,7 @@ in
       mycli
       pgcli
 
-    ])
-    ++ [ godot_43 ];
+    ]);
 
   programs = {
     bat.enable = true;
