@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
-    elixir
-    elixir-ls
-  ];
   programs.fzf.enable = true;
   programs.neovim = {
     enable = true;
@@ -21,7 +17,6 @@
       yaml-language-server
       docker-compose-language-service
       dockerfile-language-server-nodejs
-      erlang_26
       lua-language-server
       gopls
       nixd
