@@ -69,6 +69,7 @@
       hyx = "hyprctl dispatch exec --";
       rb = "just -f ~/nixos-config/Justfile";
       k = "kubectl";
+      lzd = "lazydocker";
       ssh = "kitten ssh";
     };
   };
