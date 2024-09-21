@@ -36,6 +36,7 @@
       sqlite
       inotify-tools
       neofetch
+      wl-mirror
 
       # build tools
       gnumake
@@ -45,7 +46,6 @@
       gcc
       ninja
       meson
-      mise
 
       # cloud native
       docker-compose
@@ -57,6 +57,8 @@
       openshift
       stern
       k9s
+      awscli2
+      rclone
 
       # javascript
       nodejs
@@ -76,6 +78,8 @@
       # rust
       rustc
       cargo
+
+      bash-language-server
 
       # db related
       mysql84

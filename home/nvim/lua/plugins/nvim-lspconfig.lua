@@ -196,7 +196,7 @@ local servers = {
   'phpactor',
   'nixd',
   'rust_analyzer',
-  'tsserver',
+  'ts_ls',
   'yamlls',
 }
 

@@ -3,6 +3,11 @@
 ## Nixos
 - Install on desktop
 
+- Fix red screen when waking from sleep
+Seems to occur after hibernate when closing lid, possibly also after idle
+External display does not matter
+
+
 ## Nvim
 - migrate to nixvim
 - migrate to lazy nvim
