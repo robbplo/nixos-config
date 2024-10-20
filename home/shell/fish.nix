@@ -5,16 +5,7 @@
   programs.fish = {
     enable = true;
     plugins = [
-      # Git aliases
-      {
-        name = "gitnow";
-        src = builtins.fetchGit {
-          url = "https://github.com/joseluisq/gitnow.git";
-          ref = "HEAD";
-          rev = "91bda1d0ffad2d68b21a1349f9b55a8cb5b54f35";
-        };
-      }
-      # Nice prompt, needs runtime config though
+      # Nice prompt, needs imperative config though
       {
         name = "tide";
         src = pkgs.fishPlugins.tide.src;
@@ -23,16 +14,6 @@
       {
         name = "z";
         src = pkgs.fishPlugins.z.src;
-      }
-      # Colorizer for common commands
-      {
-        name = "grc";
-        src = pkgs.fishPlugins.grc.src;
-      }
-      # Run bash commands directly from fish
-      {
-        name = "bass";
-        src = pkgs.fishPlugins.bass.src;
       }
     ];
     interactiveShellInit = ''

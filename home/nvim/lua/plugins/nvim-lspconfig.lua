@@ -198,6 +198,7 @@ local servers = {
   'rust_analyzer',
   'ts_ls',
   'yamlls',
+  'hls',
 }
 
 -- Call setup
