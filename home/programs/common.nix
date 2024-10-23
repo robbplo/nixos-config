@@ -1,18 +1,34 @@
 { pkgs, ... }:
 
+let
+  stagingNextPkgs = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/staging-next.tar.gz";
+  }) { };
+  azureCliOverlay = self: super: {
+    azure-cli = stagingNextPkgs.azure-cli;
+  };
+  pkgsWithFixedAzureCli = import <nixpkgs> {
+    overlays = [ azureCliOverlay ];
+    #config = config.nixpkgs.config;
+  };
+
+in
+
 {
   home.packages =
     (with pkgs; [
       # utils
-      yq-go # https://github.com/mikefarah/yq
+      yq-go
       nix-prefetch-git
       moar
-      ov
       parallel
+      neofetch
+      wl-mirror
+      lsof
+      tldr
 
       # GUI
       google-chrome
-      # dbeaver-bin
       _1password
       _1password-gui
       spotifywm
@@ -30,13 +46,8 @@
 
       # misc
       libnotify
-      xdg-utils
-      grc
-      lsof
-      sqlite
       inotify-tools
-      neofetch
-      wl-mirror
+      xdg-utils
 
       # build tools
       gnumake
@@ -53,10 +64,11 @@
       kubectl
       kubectx
       kubelogin
-      azure-cli
-      openshift
       stern
       k9s
+      openshift
+      # failed after updating inputs
+      # azure-cli
       awscli2
       rclone
 
@@ -70,7 +82,6 @@
       # elixir
       beam.packages.erlang_27.erlang
       beam.packages.erlang_27.elixir_1_17
-      beam.packages.erlang_27.elixir-ls
 
       # snake_language
       python3
@@ -79,15 +90,17 @@
       rustc
       cargo
 
-      bash-language-server
-
       # db related
       mysql84
       mysql-shell
       mycli
       pgcli
+      sqlite
 
-    ]);
+    ])
+    ++ [
+      pkgsWithFixedAzureCli.azure-cli
+    ];
 
   programs = {
     bat.enable = true;
