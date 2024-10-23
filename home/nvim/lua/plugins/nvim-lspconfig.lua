@@ -185,9 +185,7 @@ local servers = {
   'docker_compose_language_service',
   'dockerls',
   'eslint',
-  'elixirls',
   'gdscript',
-  'gleam',
   'gopls',
   'html',
   'jsonls',
@@ -215,8 +213,19 @@ lspconfig['gleam'].setup {
   cmd = { 'gleam', 'lsp' }
 }
 
-lspconfig['elixirls'].setup {
+--lspconfig['elixirls'].setup {
+--  on_attach = on_attach,
+--  capabilities = capabilities,
+--  cmd = { 'elixir-ls' }
+--}
+lspconfig.lexical.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { 'elixir-ls' }
+  cmd = { "lexical" },
+  root_dir = function(fname)
+    return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.cwd()
+  end,
+  filetypes = { "elixir", "eelixir", "heex" },
+  -- optional settings
+  settings = {}
 }
