@@ -5,6 +5,15 @@
   programs.fish = {
     enable = true;
     plugins = [
+      # Git aliases
+      {
+        name = "gitnow";
+        src = builtins.fetchGit {
+          url = "https://github.com/joseluisq/gitnow.git";
+          ref = "HEAD";
+          rev = "91bda1d0ffad2d68b21a1349f9b55a8cb5b54f35";
+        };
+      }
       # Nice prompt, needs imperative config though
       {
         name = "tide";
