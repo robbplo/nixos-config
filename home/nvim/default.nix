@@ -10,8 +10,8 @@
     vimdiffAlias = true;
     extraPackages = with pkgs; [
       # Language servers
-      nodePackages_latest.bash-language-server
-      nodePackages_latest.typescript-language-server
+      bash-language-server
+      typescript-language-server
       vscode-langservers-extracted # HTML, CSS, JSON, ESlint
       rust-analyzer
       yaml-language-server
@@ -20,11 +20,11 @@
       lua-language-server
       gopls
       nixd
+      haskell-language-server
 
       # Formatters
       nixfmt-rfc-style
       biome
-      nodePackages.prettier
       shfmt
       stylelint
       stylua

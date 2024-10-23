@@ -30,6 +30,8 @@
       set fish_greeting
       # Use fish for nix shell
       nix-your-shell fish | source
+      # moar as pager
+      set -x PAGER moar
     '';
     shellAbbrs = {
       ga = "git add";
@@ -62,5 +64,9 @@
       lzd = "lazydocker";
       ssh = "kitten ssh";
     };
+  };
+  home.file.".config/fish/functions" = {
+    source = ./fish_functions;
+    recursive = true;
   };
 }
