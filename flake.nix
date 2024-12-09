@@ -7,8 +7,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
-    ags.url = "github:Aylur/ags";
-    dbeaver-last.url = "github:nixos/nixpkgs/4d10225ee46c0ab16332a2450b493e0277d1741a";
+    ags.url = "github:Aylur/ags/60180a184cfb32b61a1d871c058b31a3b9b0743d";
+    # dbeaver-last.url = "github:nixos/nixpkgs/4d10225ee46c0ab16332a2450b493e0277d1741a";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
   };

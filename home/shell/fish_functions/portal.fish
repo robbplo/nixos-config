@@ -7,7 +7,6 @@ end
 
 function __portal_error
   echo -e $argv >&2
-  exit 1
 end
 
 function __portal_msg
@@ -44,18 +43,22 @@ end
 function __portal_open
   if [ -e .portal-source ]
     __portal_error "A portal is already open here"
+    return 1
   end
 
   if not [ -d .git ]
     __portal_error "Not in a git repository"
+    return 1
   end
 
   if not [ -d $source_dir ]
     __portal_error "No source found for this repository, create one first using `portal link`"
+    return 1
   end
 
   if [ -d .envrc ]
     __portal_error ".envrc already exists, remove it first"
+    return 1
   end
 
   echo $source_dir > .portal-source
@@ -93,14 +96,9 @@ function __portal_link
   __portal_msg "\n🔮 Link has been established for \"$target_name\" 🔮"
 end
 
-#function __portal_source
-#  echo $source_root
-#  if [ -z $argv[1] ]
-#    builtin cd $source_root/$argv[1]
-#  else
-#    builtin cd $source_root
-#  end
-#end
+function __portal_edit
+  $EDITOR $source_dir/flake.nix
+end
 
 function __portal_usage
   echo "Usage: portal [command]"
@@ -109,6 +107,7 @@ function __portal_usage
   echo "  open     Open the portal in the current repository"
   echo "  close    Close the portal in the current repository"
   echo "  link     Establish a link to the source portal"
+  echo "  edit     Open a link flake in your default editor"
   echo ""
   echo "If no command is provided, the script will display whether the portal is open or closed."
 end
