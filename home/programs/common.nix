@@ -1,22 +1,8 @@
 { pkgs, ... }:
-
-let
-  stagingNextPkgs = import (builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/staging-next.tar.gz";
-  }) { };
-  azureCliOverlay = self: super: {
-    azure-cli = stagingNextPkgs.azure-cli;
-  };
-  pkgsWithFixedAzureCli = import <nixpkgs> {
-    overlays = [ azureCliOverlay ];
-    #config = config.nixpkgs.config;
-  };
-
-in
-
 {
-  home.packages =
-    (with pkgs; [
+  home.packages = (
+    with pkgs;
+    [
       # utils
       yq-go
       nix-prefetch-git
@@ -67,8 +53,7 @@ in
       stern
       k9s
       openshift
-      # failed after updating inputs
-      # azure-cli
+      azure-cli
       awscli2
       rclone
 
@@ -96,11 +81,11 @@ in
       mycli
       pgcli
       sqlite
+      clickhouse
+      dbeaver-bin
 
-    ])
-    ++ [
-      pkgsWithFixedAzureCli.azure-cli
-    ];
+    ]
+  );
 
   programs = {
     bat.enable = true;
