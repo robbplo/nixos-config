@@ -5,15 +5,6 @@
   programs.fish = {
     enable = true;
     plugins = [
-      # Git aliases
-      {
-        name = "gitnow";
-        src = builtins.fetchGit {
-          url = "https://github.com/joseluisq/gitnow.git";
-          ref = "HEAD";
-          rev = "91bda1d0ffad2d68b21a1349f9b55a8cb5b54f35";
-        };
-      }
       # Nice prompt, needs imperative config though
       {
         name = "tide";
@@ -29,9 +20,12 @@
       # Disable greeting
       set fish_greeting
       # Use fish for nix shell
-      nix-your-shell fish | source
+      nix-your-shell fish | source &
       # moar as pager
       set -x PAGER moar
+      fish_add_path ~/.cargo/bin
+      test -r ~/.local/src/kuber/kuber.completion.fish && \
+        source ~/.local/src/kuber/kuber.completion.fish &
     '';
     shellAbbrs = {
       ga = "git add";
@@ -57,16 +51,14 @@
       p = "wl-paste";
       copy = "wl-copy";
       c = "wl-copy";
-      startags = "hyprctl dispatch exec /home/robbin/.config/hypr/scripts/start_ags";
       hyx = "hyprctl dispatch exec --";
-      rb = "just -f ~/nixos-config/Justfile";
       k = "kubectl";
       lzd = "lazydocker";
-      ssh = "kitten ssh";
     };
   };
   home.file.".config/fish/functions" = {
     source = ./fish_functions;
     recursive = true;
   };
+  home.file.".config/fish/completions/wash.fish".source = ./fish_completions/wash.fish;
 }
