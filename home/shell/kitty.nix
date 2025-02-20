@@ -61,7 +61,7 @@
       color16 = "#ff966c";
       color17 = "#c53b53";
 
-      background_opacity = "0.5";
+      #background_opacity = "0.8";
       linux_display_server = "Wayland";
       # do not ask to sanitize pasted input
       paste_actions = "quote-urls-at-prompt";

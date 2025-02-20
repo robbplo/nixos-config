@@ -12,6 +12,7 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.initrd.availableKernelModules = [
     "nvme"
     "ehci_pci"
@@ -52,4 +53,14 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  hardware.bluetooth.settings = {
+    General = {
+      # allow a2dp-sink
+      Enable = "Source,Sink,Media,Socket";
+      Experimental = true;
+      KernelExperimental = true;
+    };
+  };
+
 }

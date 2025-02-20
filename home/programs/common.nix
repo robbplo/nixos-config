@@ -24,6 +24,7 @@
       beekeeper-studio
       wofi
       godot_4
+      wdisplays
 
       # archives
       zip
@@ -72,8 +73,7 @@
       python3
 
       # rust
-      rustc
-      cargo
+      rustup
 
       # db related
       mysql84
