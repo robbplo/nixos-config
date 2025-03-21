@@ -10,11 +10,6 @@
         name = "tide";
         src = pkgs.fishPlugins.tide.src;
       }
-      # Pure-fish zoxide clone
-      {
-        name = "z";
-        src = pkgs.fishPlugins.z.src;
-      }
     ];
     interactiveShellInit = ''
       # Disable greeting
