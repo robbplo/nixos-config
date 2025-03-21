@@ -94,6 +94,7 @@
     btop.enable = true; # replacement of htop/nmon
     eza.enable = true; # A modern replacement for ‘ls’
     jq.enable = true; # A lightweight and flexible command-line JSON processor
+    zoxide.enable = true; # Cd to anywhere
 
     ssh.enable = true;
     aria2.enable = true;

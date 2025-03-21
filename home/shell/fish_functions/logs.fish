@@ -31,6 +31,5 @@ function logs -d "Gitnow: Shows logs in a fancy way"
     end
 
     LC_ALL=C command git log $v_max_commits $v_args --color --graph \
-        --pretty=format:"%C(red)%h%C(reset)%C(yellow)%d%Creset %s %C(green italic)(%cr)%C(reset) %C(blue)%an%C(reset) %C(white dim)%GK %C(reset)" --abbrev-commit \
-        | command less -R
+        --pretty=format:"%C(red)%h%C(reset)%C(yellow)%d%Creset %s %C(green italic)(%cr)%C(reset) %C(blue)%an%C(reset) %C(white dim)%GK %C(reset)" --abbrev-commit
 end
