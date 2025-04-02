@@ -12,15 +12,24 @@
       }
     ];
     interactiveShellInit = ''
-      # Disable greeting
+      # disable greeting
       set fish_greeting
-      # Use fish for nix shell
+
+      # paths
+      fish_add_path ~/.cargo/bin
+
+      # use fish for nix shell
       nix-your-shell fish | source &
+
       # moar as pager
       set -x PAGER moar
-      fish_add_path ~/.cargo/bin
+
+      # kuber completions because i'm too lazy to make a proper nix module
       test -r ~/.local/src/kuber/kuber.completion.fish && \
         source ~/.local/src/kuber/kuber.completion.fish &
+
+      # larger memory for zoxide
+      set -x _ZO_MAXAGE 100000
     '';
     shellAbbrs = {
       ga = "git add";
