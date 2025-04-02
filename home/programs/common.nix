@@ -21,10 +21,9 @@
       slack
       obsidian
       webcord
-      beekeeper-studio
       wofi
-      godot_4
       wdisplays
+      code-cursor
 
       # archives
       zip
@@ -83,7 +82,6 @@
       sqlite
       clickhouse
       dbeaver-bin
-
     ]
   );
 
