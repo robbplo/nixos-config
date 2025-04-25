@@ -87,6 +87,7 @@ return require('packer').startup(function(use)
   use 'folke/tokyonight.nvim'
   use "savq/melange"
   use "morhetz/gruvbox"
+  use { 'srcery-colors/srcery-vim', as = 'srcery' }
 
   -- Language specific
 

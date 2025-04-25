@@ -186,6 +186,7 @@ local servers = {
   'dockerls',
   'eslint',
   'gdscript',
+  'glsl_analyzer',
   'gopls',
   'html',
   'jsonls',

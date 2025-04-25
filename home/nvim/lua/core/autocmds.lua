@@ -17,17 +17,11 @@ autocmd('TextYankPost', {
   end
 })
 
--- Remove whitespace on save
-autocmd('BufWritePre', {
-  pattern = '*',
-  command = ":%s/\\s\\+$//e"
-})
-
 -- Don't auto commenting new lines
-autocmd('BufEnter', {
-  pattern = '*',
-  command = 'set fo-=c fo-=r fo-=o'
-})
+-- autocmd('BufEnter', {
+--   pattern = '*',
+--   command = 'set fo-=c fo-=r fo-=o'
+-- })
 
 -- Set indentation to 2 spaces
 augroup('setIndent', { clear = true })
@@ -37,6 +31,14 @@ autocmd('Filetype', {
     'yaml', 'lua', 'json'
   },
   command = 'setlocal shiftwidth=2 tabstop=2'
+})
+
+-- Set indentation to 4 spaces
+augroup('setIndent', { clear = true })
+autocmd('Filetype', {
+  group = 'setIndent',
+  pattern = { 'glsl' },
+  command = 'setlocal shiftwidth=4 tabstop=4'
 })
 
 -- Terminal settings:

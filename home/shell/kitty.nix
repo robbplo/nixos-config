@@ -14,18 +14,19 @@
       hide_window_decorations = "yes";
       confirm_os_window_close = "0";
 
-      # Color scheme
-      ## name: Tokyo Night Moon
+      ## name: srcery
+      ## author: Daniel Berg
       ## license: MIT
-      ## author: Folke Lemaitre
-      ## upstream: https://github.com/folke/tokyonight.nvim/raw/main/extras/kitty/tokyonight_moon.conf
-      background = "#222436";
-      foreground = "#c8d3f5";
-      selection_background = "#3654a7";
-      selection_foreground = "#c8d3f5";
-      url_color = "#4fd6be";
-      cursor = "#c8d3f5";
-      cursor_text_color = "#222436";
+      ## upstream: https://github.com/srcery-colors/srcery-terminal/
+      ## blurb: Srcery is a color scheme with clearly defined contrasting colors and
+      ## a slightly earthy tone.
+      foreground = "#fce8c3";
+      background = "#1c1b19";
+      selection_foreground = "#1c1b19";
+      selection_background = "#fce8c3";
+      # url_color = "#4fd6be";
+      cursor = "#fbb829";
+      cursor_text_color = "background";
 
       # Tabs
       active_tab_background = "#82aaff";
@@ -33,33 +34,37 @@
       inactive_tab_background = "#2f334d";
       inactive_tab_foreground = "#545c7e";
 
-      # Windows
-      active_border_color = "#82aaff";
-      inactive_border_color = "#2f334d";
+      #: black
+      color0 = "#1c1b19";
+      color8 = "#918175";
 
-      # normal
-      color0 = "#1b1d2b";
-      color1 = "#ff757f";
-      color2 = "#c3e88d";
-      color3 = "#ffc777";
-      color4 = "#82aaff";
-      color5 = "#c099ff";
-      color6 = "#86e1fc";
-      color7 = "#828bb8";
+      #: red
+      color1 = "#ef2f27";
+      color9 = "#f75341";
 
-      # bright
-      color8 = "#444a73";
-      color9 = "#ff757f";
-      color10 = "#c3e88d";
-      color11 = "#ffc777";
-      color12 = "#82aaff";
-      color13 = "#c099ff";
-      color14 = "#86e1fc";
-      color15 = "#c8d3f5";
+      #: green
+      color2 =  "#519f50";
+      color10 = "#98bc37";
 
-      # extended colors
-      color16 = "#ff966c";
-      color17 = "#c53b53";
+      #: yellow
+      color3 =  "#fbb829";
+      color11 = "#fed06e";
+
+      #: blue
+      color4 =  "#2c78bf";
+      color12 = "#68a8e4";
+
+      #: magenta
+      color5 =  "#e02c6d";
+      color13 = "#ff5c8f";
+
+      #: cyan
+      color6 =  "#0aaeb3";
+      color14 = "#2be4d0";
+
+      #: white
+      color7 =  "#baa67f";
+      color15 = "#fce8c3";
 
       #background_opacity = "0.8";
       linux_display_server = "Wayland";
