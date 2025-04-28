@@ -103,7 +103,6 @@
       curl
     ]
   );
-  # ++ [ inputs.dbeaver-last.legacyPackages.${pkgs.system}.pkgs.dbeaver-bin ];
 
   environment.variables.EDITOR = "nvim";
 
