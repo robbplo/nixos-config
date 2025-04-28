@@ -9,7 +9,9 @@
   # Hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  environment.systemPackages = [ inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default ];
+  environment.systemPackages = [ 
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+  ];
 
   # Enable cachix for Hyprland to avoid building it
   nix.settings = {

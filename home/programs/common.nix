@@ -12,7 +12,7 @@
       wl-mirror
       lsof
       tldr
-
+      
       # GUI
       google-chrome
       _1password
@@ -21,7 +21,6 @@
       slack
       obsidian
       webcord
-      wofi
       wdisplays
       code-cursor
 
