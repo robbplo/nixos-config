@@ -12,7 +12,7 @@
       wl-mirror
       lsof
       tldr
-      
+
       # GUI
       google-chrome
       _1password
