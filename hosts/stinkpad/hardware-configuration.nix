@@ -23,7 +23,10 @@
     "sdhci_pci"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "cdc-acm"
+  ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
@@ -62,5 +65,7 @@
       KernelExperimental = true;
     };
   };
+
+  hardware.keyboard.qmk.enable = true;
 
 }
