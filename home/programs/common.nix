@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ lexical, pkgs, ... }:
 {
-  home.packages = (
-    with pkgs;
-    [
+  home.packages =
+    (with pkgs; [
       # utils
       yq-go
       nix-prefetch-git
@@ -15,7 +14,7 @@
 
       # GUI
       google-chrome
-      _1password
+      _1password-cli
       _1password-gui
       spotifywm
       slack
@@ -81,8 +80,8 @@
       sqlite
       clickhouse
       dbeaver-bin
-    ]
-  );
+    ])
+    ++ [ lexical.packages.${pkgs.system}.default ];
 
   programs = {
     bat.enable = true;
