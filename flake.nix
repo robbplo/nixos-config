@@ -12,10 +12,14 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     lexical.url = "github:lexical-lsp/lexical";
+
+    nix-ld.url = "github:Mic92/nix-ld";
+    # this line assume that you also have nixpkgs as an input
+    nix-ld.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
-    inputs@{ nixpkgs, ... }:
+    inputs@{ nixpkgs, nix-ld, ... }:
     {
       nixosConfigurations = {
         stinkpad = nixpkgs.lib.nixosSystem {
@@ -23,6 +27,8 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/stinkpad
+            nix-ld.nixosModules.nix-ld
+            { programs.nix-ld.dev.enable = true; }
 
             ./modules/desktop.nix
             ./modules/home-manager.nix
