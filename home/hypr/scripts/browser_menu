@@ -1,33 +1,6 @@
 #!/usr/bin/env -S fish -N
-set pairs '{
-"Actions API": "https://gitlab.betty.services/code/actions-api/-/merge_requests",
-"Actions compiler": "https://gitlab.betty.services/code/actions-compiler/-/merge_requests",
-"Actions JS": "https://gitlab.betty.services/code/actions-js/-/merge_requests",
-"Actions providers": "https://gitlab.betty.services/code/actions-providers/-/merge_requests",
-"Actions scheduler": "https://gitlab.betty.services/code/actions-scheduler/-/merge_requests",
-"Artifact API": "https://gitlab.betty.services/code/artifact-api/-/merge_requests",
-"Assets API": "https://gitlab.betty.services/code/assets-api/-/merge_requests",
-"Betty5": "https://gitlab.betty.services/code/betty5/-/merge_requests",
-"Betty6": "https://gitlab.betty.services/code/betty6/-/merge_requests",
-"Block store": "https://gitlab.betty.services/code/block_store/-/merge_requests",
-"Builder API": "https://gitlab.betty.services/code/builder-api/-/merge_requests",
-"Data API": "https://gitlab.betty.services/code/data-api/-/merge_requests",
-"Data compiler": "https://gitlab.betty.services/code/data-compiler/-/merge_requests",
-"Embedding service": "https://gitlab.betty.services/code/machine-learning/embedding-service/-/merge_requests",
-"File caching service": "https://gitlab.betty.services/code/file_caching_service/-/merge_requests",
-"IDE action canvas": "https://gitlab.betty.services/actions/ide-action-canvas/-/merge_requests",
-"IDE action step detail view": "https://gitlab.betty.services/actions/ide-action-step-detail-view/-/merge_requests",
-"IDE logs": "https://gitlab.betty.services/code/falcon/ide-logs/-/merge_requests",
-"IDE roles": "https://gitlab.betty.services/code/falcon/ide-roles/-/merge_requests",
-"Logs reader": "https://gitlab.betty.services/code/logs_reader/-/merge_requests",
-"Logs writer": "https://gitlab.betty.services/code/logs_writer/-/merge_requests",
-"Meta API": "https://gitlab.betty.services/code/meta_api/-/merge_requests",
-"Peggy": "https://gitlab.betty.services/code/peggy/-/merge_requests",
-"Pretty Betty (IDE)": "https://gitlab.betty.services/code/pretty-betty/-/merge_requests",
-"Rate limiter": "https://gitlab.betty.services/code/rate_limiter/-/merge_requests",
-"Replicator": "https://gitlab.betty.services/code/replicator/-/merge_requests",
-"Runtime dispatcher": "https://gitlab.betty.services/code/runtime_dispatche/-/merge_requestsr"
-}'
+set path (realpath (status dirname))
+set pairs (cat $path/browser_menu.json)
 set result (echo $pairs | jq -r 'keys.[]' | wofi -id -M fuzzy)
 xdg-open (echo $pairs | jq -r ".\"$result\"")
 
