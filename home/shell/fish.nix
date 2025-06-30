@@ -17,6 +17,7 @@
 
       # paths
       fish_add_path ~/.cargo/bin
+      fish_add_path ~/.bun/bin
 
       # use fish for nix shell
       nix-your-shell fish | source &
@@ -25,9 +26,6 @@
       set -x PAGER moar
 
       # kuber completions because i'm too lazy to make a proper nix module
-      test -r ~/.local/src/kuber/kuber.completion.fish && \
-        source ~/.local/src/kuber/kuber.completion.fish &
-
       # larger memory for zoxide
       set -x _ZO_MAXAGE 100000
     '';

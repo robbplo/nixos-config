@@ -44,6 +44,7 @@
       luafile ${./lua/plugins/indent-blankline.lua}
       luafile ${./lua/plugins/lualine.lua}
       luafile ${./lua/plugins/neovide.lua}
+      luafile ${./lua/plugins/noice.lua}
       luafile ${./lua/plugins/nvim-cmp.lua}
       luafile ${./lua/plugins/nvim-lspconfig.lua}
       luafile ${./lua/plugins/nvim-telescope.lua}
