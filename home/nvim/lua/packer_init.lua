@@ -25,6 +25,9 @@ return require('packer').startup(function(use)
   -- QFlist and diagnostics list
   use 'folke/trouble.nvim'
 
+  -- Fancy cmdline and notifications
+  use { 'folke/noice.nvim', requires = 'MunifTanjim/nui.nvim' }
+
   -- LSP and autocomplete
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -78,7 +81,6 @@ return require('packer').startup(function(use)
 
   -- Tab bar
   use { 'romgrk/barbar.nvim', requires = 'kyazdani42/nvim-web-devicons' }
-
 
   -- Statusline
   use { 'nvim-lualine/lualine.nvim', requires = 'kyazdani42/nvim-web-devicons' }

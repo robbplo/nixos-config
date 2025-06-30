@@ -11,6 +11,7 @@
       wl-mirror
       lsof
       tldr
+      hyperfine
 
       # GUI
       google-chrome
@@ -78,8 +79,8 @@
       mycli
       pgcli
       sqlite
+      redis
       clickhouse
-      dbeaver-bin
     ])
     ++ [ lexical.packages.${pkgs.system}.default ];
 
