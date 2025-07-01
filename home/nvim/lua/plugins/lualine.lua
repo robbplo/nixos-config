@@ -1,4 +1,4 @@
 require('lualine').setup({
-  theme = 'tokyonight',
+  theme = 'auto',
   globalstatus = true
 })
