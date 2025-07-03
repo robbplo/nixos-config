@@ -1,3 +1,6 @@
-require("trouble").setup {
-  pinned = true,
+return {
+  'folke/trouble.nvim',
+  opts = {
+    pinned = true,
+  },
 }
