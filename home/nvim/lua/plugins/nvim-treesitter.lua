@@ -1,6 +1,7 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
+  event = 'VimEnter',
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs',
   opts = {
