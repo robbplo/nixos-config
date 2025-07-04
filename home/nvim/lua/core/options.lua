@@ -29,3 +29,7 @@ vim.o.colorcolumn = "100"
 
 -- Preferred line length
 vim.o.textwidth = 100
+
+-- Hide statusbar
+vim.o.showmode = false
+vim.o.cmdheight = 0

@@ -4,7 +4,6 @@ return {
     'neovim/nvim-lspconfig',
     init = function()
       local lspconfig = require('lspconfig')
-      local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
       -- Diagnostic options, see: `:help vim.diagnostic.config`
       vim.diagnostic.config({ virtual_text = true })
@@ -22,7 +21,7 @@ return {
 
       -- Add additional capabilities supported by nvim-cmp
       -- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
-      local capabilities = cmp_nvim_lsp.default_capabilities()
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown', 'plaintext' }
       capabilities.textDocument.completion.completionItem.snippetSupport = true

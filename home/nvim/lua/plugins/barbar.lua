@@ -1,5 +1,6 @@
 return {
   'romgrk/barbar.nvim',
+  event = 'VimEnter',
   dependencies = { 'kyazdani42/nvim-web-devicons' },
   opts = {
     focus_on_close = "right",
