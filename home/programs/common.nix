@@ -1,4 +1,9 @@
-{ lexical, pkgs, ... }:
+{
+  lexical,
+  pkgs,
+  lib,
+  ...
+}:
 {
   home.packages =
     (with pkgs; [
@@ -8,7 +13,8 @@
       moar
       parallel
       neofetch
-      wl-mirror
+      # todo: add to wayland module
+      # wl-mirror
       lsof
       tldr
       hyperfine
@@ -17,11 +23,14 @@
       google-chrome
       _1password-cli
       _1password-gui
-      spotifywm
+      # todo: add to wayland module
+      # spotifywm
       slack
       obsidian
-      webcord
-      wdisplays
+      # todo: add to wayland module
+      # spotifywm
+      # webcord
+      # wdisplays
       code-cursor
 
       # archives
@@ -31,7 +40,8 @@
 
       # misc
       libnotify
-      inotify-tools
+      # todo: add to wayland module
+      # inotify-tools
       xdg-utils
 
       # build tools
@@ -57,9 +67,9 @@
       rclone
 
       # javascript
-      nodejs
-      nodePackages.npm
-      nodePackages.pnpm
+      # nodejs
+      # nodePackages.npm
+      # nodePackages.pnpm
       bun
       yarn
 
@@ -75,14 +85,14 @@
 
       # db related
       mysql84
-      mysql-shell
       mycli
       pgcli
       sqlite
       redis
       clickhouse
     ])
-    ++ [ lexical.packages.${pkgs.system}.default ];
+    ++ [ lexical.packages.${pkgs.system}.default ]
+    ++ (lib.optionals pkgs.stdenv.isLinux (with pkgs; [ wl-mirror ]));
 
   programs = {
     bat.enable = true;

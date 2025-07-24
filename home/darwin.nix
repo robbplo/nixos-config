@@ -1,8 +1,5 @@
 {
   imports = [
-    ./ags
-    ./hypr
-    ./wofi
     ./programs
     ./shell
     ./nvim
@@ -13,7 +10,7 @@
   # paths it should manage.
   home = {
     username = "robbin";
-    homeDirectory = "/home/robbin";
+    homeDirectory = "/Users/robbin";
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
