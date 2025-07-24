@@ -1,8 +1,19 @@
-rebuild:
-  sudo nixos-rebuild switch --flake . --fast
+# rebuild:
+#   @arch=$(uname -m)
+#     if [ "$arch" = "x86_64" ]; then
+#       just x86-default
+#     elif [ "$arch" = "arm64" ] || [ "$arch" = "aarch64" ]; then
+#       just arm-default
+#     else
+#       echo "Unsupported architecture: $arch"
+#       exit 1
+#     fi
 
-debug:
-  sudo nixos-rebuild switch --flake . --show-trace --verbose
+rebuild-mac:
+  sudo nix run nix-darwin -- switch --flake .#default
+
+rebuild-linux:
+  sudo nixos-rebuild switch --flake . --fast
 
 up:
   nix flake update
