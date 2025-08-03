@@ -34,14 +34,16 @@
       system = "aarch64-darwin";
     in
     {
-      darwinConfigurations.smackbook = nix-darwin.lib.darwinSystem {
-        system = system;
-        specialArgs = {
-          inherit inputs system;
+      darwinConfigurations = {
+        smackbook = nix-darwin.lib.darwinSystem {
+          system = system;
+          specialArgs = {
+            inherit inputs system;
+          };
+          modules = [
+            ./hosts/smackbook
+          ];
         };
-        modules = [
-          ./hosts/smackbook
-        ];
       };
       nixosConfigurations = {
         stinkpad = nixpkgs.lib.nixosSystem {
