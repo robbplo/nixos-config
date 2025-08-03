@@ -18,6 +18,7 @@
       # paths
       fish_add_path ~/.cargo/bin
       fish_add_path ~/.bun/bin
+      fish_add_path /opt/homebrew/bin
 
       # use fish for nix shell
       nix-your-shell fish | source &

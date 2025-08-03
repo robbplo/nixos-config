@@ -7,6 +7,8 @@
     recursive = true;
   };
 
-  # home.packages = with pkgs; [ nerdfonts ];
-
+  home.file."Library/Fonts/HomeManager/Cartograph" = {
+    source = ./Cartograph;
+    recursive = true;
+  };
 }
