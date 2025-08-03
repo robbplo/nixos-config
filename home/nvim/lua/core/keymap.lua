@@ -41,6 +41,8 @@ map('<A-h>', cmd('BufferPrevious'))
 map('<A-l>', cmd('BufferNext'))
 map('<A-Left>', cmd('BufferPrevious'))
 map('<A-Right>', cmd('BufferNext'))
+map('[b', cmd('BufferPrevious'))
+map(']b', cmd('BufferNext'))
 ---- Goto buffer in position...
 map('<A-1>', cmd('BufferGoto 1'))
 map('<A-2>', cmd('BufferGoto 2'))
@@ -57,6 +59,8 @@ map('<A-p>', cmd('BufferPin'))
 ---- Close buffer
 map('<A-c>', cmd('BufferClose'))
 map('<A-C>', cmd('BufferCloseAllButCurrentOrPinned'))
+map('<leader>bd', cmd('BufferClose'))
+map('<leader>bD', cmd('BufferCloseAllButCurrentOrPinned'))
 
 -- Trouble
 nmap('<leader>xx', cmd('Trouble diagnostics toggle'))
@@ -79,8 +83,10 @@ nmap('<leader>tf', cmd('Telescope live_grep'))
 nmap('<leader>tF', cmd('lua require("telescope.builtin").live_grep({ no_ignore = true})'))
 
 -- Git
-nmap('<leader>gn', cmd('Gitsigns next_hunk'))
 nmap('<leader>gp', cmd('Gitsigns prev_hunk'))
+nmap('<leader>gn', cmd('Gitsigns next_hunk'))
+nmap('[g', cmd('Gitsigns prev_hunk'))
+nmap(']g', cmd('Gitsigns next_hunk'))
 nmap('<leader>gb', cmd('Gitsigns blame_line'))
 nmap('<leader>gd', cmd('Gitsigns diffthis'))
 nmap('<leader>gr', cmd('Gitsigns reset_hunk'))

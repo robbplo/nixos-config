@@ -65,6 +65,7 @@
       azure-cli
       awscli2
       rclone
+      supabase-cli
 
       # javascript
       # nodejs
@@ -82,6 +83,10 @@
 
       # rust
       rustup
+
+      # go
+      go
+      gopls
 
       # db related
       mysql84

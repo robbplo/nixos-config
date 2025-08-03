@@ -22,8 +22,9 @@
   # Add ability to use TouchID for sudo
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  programs.fish.enable = true;
   users.users.robbin = {
-    shell = pkgs.bashInteractive;
+    shell = pkgs.fish;
     name = "robbin";
     home = "/Users/robbin";
   };

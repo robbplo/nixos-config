@@ -1,56 +1,3 @@
-let
-  kittyConf = ''
-    font_family Cartograph CF Regular
-    bold_font Cartograph CF Bold
-    italic_font Cartograph CF Regular Italic
-    bold_italic_font Cartograph CF Bold Italic
-
-    font_size 14.0
-    cursor_shape block
-    copy_on_select yes
-    window_padding_width 0
-    hide_window_decorations yes
-    confirm_os_window_close 0
-
-    foreground #fce8c3
-    background #1c1b19
-    selection_foreground #1c1b19
-    selection_background #fce8c3
-    cursor #fbb829
-    cursor_text_color background
-
-    active_tab_background #82aaff
-    active_tab_foreground #1e2030
-    inactive_tab_background #2f334d
-    inactive_tab_foreground #545c7e
-
-    color0 #1c1b19
-    color8 #918175
-    color1 #ef2f27
-    color9 #f75341
-    color2 #519f50
-    color10 #98bc37
-    color3 #fbb829
-    color11 #fed06e
-    color4 #2c78bf
-    color12 #68a8e4
-    color5 #e02c6d
-    color13 #ff5c8f
-    color6 #0aaeb3
-    color14 #2be4d0
-    color7 #baa67f
-    color15 #fce8c3
-
-
-    linux_display_server Wayland
-    paste_actions quote-urls-at-prompt
-    scrollback_pager_history_size 10
-    macos_option_as_alt yes
-
-    map kitty_mod+t no_op
-    map cmd+t no_op
-  '';
-in
 {
   # home.file.".config/kitty/kitty.conf".text = kittyConf;
   programs.kitty = {
@@ -65,7 +12,9 @@ in
       cursor_shape = "block";
       copy_on_select = "yes";
       window_padding_width = "0";
-      hide_window_decorations = "yes";
+      # todo: yes on linux, titlebar-only on macos
+      # hide_window_decorations = "yes";
+      hide_window_decorations = "titlebar-only";
       confirm_os_window_close = "0";
 
       ## name: srcery
