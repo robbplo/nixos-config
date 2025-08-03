@@ -13,9 +13,12 @@
     casks = [
       "1password"
       "aerospace"
+      "cursor"
+      "google-chrome"
       "karabiner-elements"
       "lm-studio"
       "nikitabobko/tap/aerospace"
+      "obsidian"
       "orbstack"
       "slack"
       "spotify"

@@ -14,24 +14,24 @@
       parallel
       neofetch
       # todo: add to wayland module
-      # wl-mirror
       lsof
       tldr
       hyperfine
+      zellij
 
       # GUI
-      google-chrome
-      _1password-cli
-      _1password-gui
       # todo: add to wayland module
+      # _1password-cli
+      # _1password-gui
+      # code-cursor
+      # google-chrome
+      # obsidian
+      # slack
       # spotifywm
-      slack
-      obsidian
-      # todo: add to wayland module
       # spotifywm
-      # webcord
       # wdisplays
-      code-cursor
+      # webcord
+      # wl-mirror
 
       # archives
       zip
