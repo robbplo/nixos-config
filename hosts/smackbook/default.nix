@@ -1,6 +1,11 @@
 { pkgs, ... }:
 {
-  imports = [ ./home.nix ];
+  imports = [
+    ./home.nix
+    ./homebrew.nix
+  ];
+
+  networking.hostName = "stinkpad";
 
   nix = {
     settings = {

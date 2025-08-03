@@ -10,7 +10,7 @@
 #     fi
 
 rebuild-mac:
-  sudo nix run nix-darwin -- switch --flake .#default
+  sudo darwin-rebuild switch --flake .#smackbook
 
 rebuild-linux:
   sudo nixos-rebuild switch --flake . --fast
