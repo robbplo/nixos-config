@@ -5,7 +5,7 @@
     ./homebrew.nix
   ];
 
-  networking.hostName = "stinkpad";
+  networking.hostName = "smackbook";
 
   nix = {
     settings = {

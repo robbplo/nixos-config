@@ -5,22 +5,28 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
-    ags.url = "github:Aylur/ags/60180a184cfb32b61a1d871c058b31a3b9b0743d";
+    # Linux desktop things
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
-    lexical.url = "github:lexical-lsp/lexical";
+    ags.url = "github:Aylur/ags/60180a184cfb32b61a1d871c058b31a3b9b0743d";
 
+    # Run dynamic binaries on NixOS
     nix-ld.url = "github:Mic92/nix-ld";
     nix-ld.inputs.nixpkgs.follows = "nixpkgs";
 
+    # MacOS
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-
     # Fix an issue where home-manager apps are not indexed on Spotlight
     mac-app-util.url = "github:hraban/mac-app-util";
     mac-app-util.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Run NixOS in WSL
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
+    # Elixir language server
+    lexical.url = "github:lexical-lsp/lexical";
   };
 
   outputs =

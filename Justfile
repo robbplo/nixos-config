@@ -1,16 +1,10 @@
-# rebuild:
-#   @arch=$(uname -m)
-#     if [ "$arch" = "x86_64" ]; then
-#       just x86-default
-#     elif [ "$arch" = "arm64" ] || [ "$arch" = "aarch64" ]; then
-#       just arm-default
-#     else
-#       echo "Unsupported architecture: $arch"
-#       exit 1
-#     fi
+build-cmd := if arch() == "aarch64" { "rebuild-mac" } else { "rebuild-linux" }
+
+rebuild:
+  just {{build-cmd}}
 
 rebuild-mac:
-  sudo darwin-rebuild switch --flake .#smackbook
+  sudo darwin-rebuild switch --flake .
 
 rebuild-linux:
   sudo nixos-rebuild switch --flake . --fast
