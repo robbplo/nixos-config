@@ -6,7 +6,7 @@
     sharedModules = [ inputs.mac-app-util.homeManagerModules.default ];
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.robbin = import ../../home/darwin.nix;
+    users.robbin = import ../../../home/darwin.nix;
     extraSpecialArgs = inputs;
   };
 }
