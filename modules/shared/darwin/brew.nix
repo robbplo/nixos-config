@@ -22,7 +22,7 @@
       "orbstack"
       "slack"
       "spotify"
-      "unnaturalscrollwheels"
+      "logi-options+"
     ];
   };
 }

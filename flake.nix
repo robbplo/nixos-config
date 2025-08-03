@@ -47,7 +47,8 @@
             inherit inputs system;
           };
           modules = [
-            ./hosts/smackbook
+            ./modules/hosts/smackbook
+            ./modules/shared/darwin
           ];
         };
       };
@@ -56,27 +57,19 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/stinkpad
+            ./modules/hosts/stinkpad
+            ./modules/shared/nixos
             nix-ld.nixosModules.nix-ld
             { programs.nix-ld.dev.enable = true; }
 
-            ./modules/desktop.nix
-            ./modules/home-manager.nix
-            ./modules/hyprland.nix
-            ./modules/network.nix
-            ./modules/nixpkgs.nix
           ];
         };
         yeti-wsl = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/yeti-wsl
-
-            ./modules/network.nix
-            ./modules/nixpkgs.nix
-            ./modules/wsl.nix
-            ./modules/home-manager.nix
+            ./modules/hosts/yeti-wsl
+            ./modules/shared/nixos
           ];
         };
       };
