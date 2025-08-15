@@ -23,6 +23,7 @@
       "slack"
       "spotify"
       "logi-options+"
+      "raycast"
     ];
   };
 }
