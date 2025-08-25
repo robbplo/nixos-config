@@ -7,7 +7,7 @@
     keyboard = {
       enableKeyMapping = true;
       remapCapsLockToControl = true;
-      nonUS.remapTilde = true;
+      nonUS.remapTilde = false;
     };
   };
 
