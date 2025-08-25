@@ -4,15 +4,6 @@
   email = robbplo@gmail.com
   name = Robbin Ploeger
 
-[includeIf "hasconfig:remote.*.url:git@gitlab.betty.services:*/**"]
-  [user]
-    email = robbin.ploeger@bettyblocks.com
-    name = Robbin Ploeger
-[includeIf "hasconfig:remote.*.url:https://gitlab.betty.services/**"]
-  [user]
-    email = robbin.ploeger@bettyblocks.com
-    name = Robbin Ploeger
-
 [credential "https://github.com"]
 	helper = !gh auth git-credential
 [credential "https://gitlab.betty.services"]
