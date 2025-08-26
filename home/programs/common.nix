@@ -13,11 +13,11 @@
       moar
       parallel
       neofetch
-      # todo: add to wayland module
       lsof
       tldr
       hyperfine
       zellij
+      gemini-cli
 
       # GUI
       # todo: add to wayland module
@@ -32,6 +32,7 @@
       # wdisplays
       # webcord
       # wl-mirror
+      # xdg-utils
 
       # archives
       zip
@@ -42,7 +43,6 @@
       libnotify
       # todo: add to wayland module
       # inotify-tools
-      xdg-utils
 
       # build tools
       gnumake
@@ -75,8 +75,8 @@
       yarn
 
       # elixir
-      beam.packages.erlang_27.erlang
-      beam.packages.erlang_27.elixir_1_17
+      beam.packages.erlang_28.erlang
+      beam.packages.erlang_28.elixir_1_18
 
       # snake_language
       python3
