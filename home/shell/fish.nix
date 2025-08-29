@@ -19,6 +19,7 @@
       fish_add_path ~/.cargo/bin
       fish_add_path ~/.bun/bin
       fish_add_path /opt/homebrew/bin
+      fish_add_path ~/.mix/escripts
 
       # use fish for nix shell
       nix-your-shell fish | source &
