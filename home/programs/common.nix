@@ -68,11 +68,8 @@
       supabase-cli
 
       # javascript
-      # nodejs
-      # nodePackages.npm
-      # nodePackages.pnpm
+      nodejs
       bun
-      yarn
 
       # elixir
       beam.packages.erlang_28.erlang
