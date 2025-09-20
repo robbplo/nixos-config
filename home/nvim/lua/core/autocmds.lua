@@ -27,9 +27,7 @@ autocmd('TextYankPost', {
 augroup('setIndent', { clear = true })
 autocmd('Filetype', {
   group = 'setIndent',
-  pattern = { 'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript',
-    'yaml', 'lua', 'json'
-  },
+  pattern = { 'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript', 'yaml', 'lua', 'json' },
   command = 'setlocal shiftwidth=2 tabstop=2'
 })
 
@@ -37,7 +35,7 @@ autocmd('Filetype', {
 augroup('setIndent', { clear = true })
 autocmd('Filetype', {
   group = 'setIndent',
-  pattern = { 'glsl' },
+  pattern = { 'glsl', 'astro' },
   command = 'setlocal shiftwidth=4 tabstop=4'
 })
 
