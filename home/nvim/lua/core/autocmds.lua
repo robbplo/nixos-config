@@ -17,11 +17,11 @@ autocmd('TextYankPost', {
   end
 })
 
--- Don't auto commenting new lines
--- autocmd('BufEnter', {
---   pattern = '*',
---   command = 'set fo-=c fo-=r fo-=o'
--- })
+-- Don't auto comment new lines
+autocmd('BufEnter', {
+  pattern = '*',
+  command = 'set fo-=c fo-=r fo-=o'
+})
 
 -- Set indentation to 2 spaces
 augroup('setIndent', { clear = true })
@@ -73,17 +73,14 @@ local function save_buffer()
     vim.cmd('silent! write')
   end
 end
-
 augroup('AutoSave', { clear = true })
 autocmd('FocusLost', {
   group = 'AutoSave',
   callback = save_buffer,
-  pattern = '*.*'
 })
 autocmd('BufLeave', {
   group = 'AutoSave',
   callback = save_buffer,
-  pattern = '*.*'
 })
 
 -- Display current dir in Oil.nvim buffer
