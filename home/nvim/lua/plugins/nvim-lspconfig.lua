@@ -5,15 +5,33 @@ return {
     init = function()
       local lspconfig = require('lspconfig')
 
-      -- Diagnostic options, see: `:help vim.diagnostic.config`
-      vim.diagnostic.config({ virtual_text = true })
-
       -- Diagnostic signs
-      local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
-      for type, icon in pairs(signs) do
-        local hl = 'DiagnosticSign' .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-      end
+      vim.diagnostic.config {
+        severity_sort = true,
+        float = { border = 'rounded', source = 'if_many' },
+        underline = { severity = vim.diagnostic.severity.ERROR },
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '󰅚 ',
+            [vim.diagnostic.severity.WARN] = '󰀪 ',
+            [vim.diagnostic.severity.INFO] = '󰋽 ',
+            [vim.diagnostic.severity.HINT] = '󰌶 ',
+          },
+        } or {},
+        virtual_text = {
+          source = 'if_many',
+          spacing = 2,
+          format = function(diagnostic)
+            local diagnostic_message = {
+              [vim.diagnostic.severity.ERROR] = diagnostic.message,
+              [vim.diagnostic.severity.WARN] = diagnostic.message,
+              [vim.diagnostic.severity.INFO] = diagnostic.message,
+              [vim.diagnostic.severity.HINT] = diagnostic.message,
+            }
+            return diagnostic_message[diagnostic.severity]
+          end,
+        },
+      }
 
       -- Show line diagnostics automatically in hover window
       vim.cmd(
@@ -143,15 +161,6 @@ return {
         end
       })
 
-      -- Setup neodev plugin
-      require('neodev').setup()
-
-      --[[
-Language servers setup:
-For language servers list see:
-https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
---]]
-
       -- Define `root_dir` when needed
       -- See: https://github.com/neovim/nvim-lspconfig/issues/320
       -- This is a workaround, maybe not work with some servers.
@@ -185,24 +194,21 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 
       -- Call setup
       for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup {
+        vim.lsp.config(lsp, {
           on_attach = on_attach,
           capabilities = capabilities,
-        }
+        })
+        vim.lsp.enable(lsp)
       end
 
-      lspconfig['gleam'].setup {
+      vim.lsp.config('gleam', {
         on_attach = on_attach,
         capabilities = capabilities,
         cmd = { 'gleam', 'lsp' }
-      }
+      })
+      vim.lsp.enable('gleam')
 
-      --lspconfig['elixirls'].setup {
-      --  on_attach = on_attach,
-      --  capabilities = capabilities,
-      --  cmd = { 'elixir-ls' }
-      --}
-      lspconfig.lexical.setup {
+      vim.lsp.config('lexical', {
         on_attach = on_attach,
         capabilities = capabilities,
         cmd = { 'lexical' },
@@ -212,7 +218,8 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
         filetypes = { 'elixir', 'eelixir', 'heex' },
         -- optional settings
         settings = {}
-      }
+      })
+      vim.lsp.enable('lexical')
     end
   },
   {
