@@ -1,6 +1,0 @@
-#!/usr/bin/env -S fish -N
-set path (realpath (status dirname))
-set pairs (cat $path/browser_menu.json)
-set result (echo $pairs | jq -r 'keys.[]' | wofi -id -M fuzzy)
-xdg-open (echo $pairs | jq -r ".\"$result\"")
-

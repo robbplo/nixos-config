@@ -20,30 +20,6 @@
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  security.pki.certificates = [
-    ''
-      -----BEGIN CERTIFICATE-----
-      MIIDFjCCAf4CCQCOmehBEwv58DANBgkqhkiG9w0BAQsFADBNMQswCQYDVQQGEwJV
-      UzEYMBYGA1UECgwPX0RldmVsb3BtZW50IENBMSQwIgYDVQQDDBtCQiBEZXZlbG9w
-      bWVudCBjZXJ0aWZpY2F0ZXMwHhcNMjIwOTMwMTEyMTAzWhcNMzIwOTI3MTEyMTAz
-      WjBNMQswCQYDVQQGEwJVUzEYMBYGA1UECgwPX0RldmVsb3BtZW50IENBMSQwIgYD
-      VQQDDBtCQiBEZXZlbG9wbWVudCBjZXJ0aWZpY2F0ZXMwggEiMA0GCSqGSIb3DQEB
-      AQUAA4IBDwAwggEKAoIBAQDDdaQhwgpdoGmwxpsdzh0aJfpwarIzbzqvuGVIlHE0
-      R3/Nf+StA9OSRkisjGGcLf3exwtEBXE4CsB9cStRA4Go61+OW6sp8MCY3a8j44qi
-      Lq/Kn+wjT7ulupFgW4d/PkBdWRReOqyPwps+GsLI3Q0tQ8qtTBcHztfCgn8lHmQN
-      u1qgy/6of7qtc4eCPTHWZ8/Y/6miWy/DwaWOnj+g0S+AYYnLbt/nwiL4XVDAO0hM
-      SVRiQ+eeYfEjGPpgjHbvQBEaWle3PD57qfnYZiwayA78R7r9kMX8syzGQYld/RW8
-      R5DeD31dw0VVustfPyIs2SPHV7YFLXrt2/TTpHproSExAgMBAAEwDQYJKoZIhvcN
-      AQELBQADggEBAHC6+3tyHyH+pO+wgB0IULKFeebA1f9EaLUrYPDw86Hmi5z1pNr1
-      E0l/MQcUraIXK3/Thu4mc9hXH8QGhbBRcPo+gF3rxwIohDXWScX819PWj7XzWs3b
-      OIzdTGmbpYvUoiIJS7kiCOi+/B5UJ0S2V8yRboJ9LCU5xerWo3dzxM7XcSKcaVD2
-      276L4Er2PCTi2pNQt1AQLzQ0Aof2h3ceEfTxHjcyBKvoQhdE/ygXU1EWnJY9+BSm
-      t27pEMBIaiZ4JoH42+mnjOy01ahwXv0iUh+48YA6q6/YRYNSr7xKyVk5CdifNfEf
-      /kgh2rZmQpZazWCVLelwQM4y0+R76abmzRs=
-      -----END CERTIFICATE-----
-    ''
-  ];
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -64,6 +40,8 @@
       };
     };
   };
+
+  security.rtkit.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -92,8 +70,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = (
     with pkgs;
     [
@@ -105,16 +81,6 @@
   );
 
   environment.variables.EDITOR = "nvim";
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
