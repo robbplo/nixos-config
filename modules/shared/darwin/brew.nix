@@ -12,18 +12,19 @@
 
     casks = [
       "1password"
+      "ableton-live-intro@11"
       "aerospace"
       "cursor"
       "google-chrome"
       "karabiner-elements"
       "lm-studio"
+      "logi-options+"
       "nikitabobko/tap/aerospace"
       "obsidian"
       "orbstack"
+      "raycast"
       "slack"
       "spotify"
-      "logi-options+"
-      "raycast"
     ];
   };
 }
