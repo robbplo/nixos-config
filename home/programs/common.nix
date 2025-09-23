@@ -66,6 +66,7 @@
       awscli2
       rclone
       supabase-cli
+      terraform
 
       # javascript
       nodejs
