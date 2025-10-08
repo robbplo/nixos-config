@@ -101,6 +101,14 @@ return {
         print('Setting autoformatting to: ' .. tostring(format_is_enabled))
       end, {})
 
+      -- Disable formatting automatically for certain filetypes
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = { 'c', 'cpp', 'h' },
+        callback = function()
+          format_is_enabled = false
+        end,
+      })
+
       -- Create an augroup that is used for managing our formatting autocmds.
       --      We need one augroup per client to make sure that multiple clients
       --      can attach to the same buffer without interfering with each other.
@@ -190,6 +198,7 @@ return {
         'ts_ls',
         'yamlls',
         'hls',
+        'clangd',
       }
 
       -- Call setup

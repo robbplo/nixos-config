@@ -39,6 +39,14 @@ autocmd('Filetype', {
   command = 'setlocal shiftwidth=4 tabstop=4'
 })
 
+-- Set idendentation to tabs
+augroup('setIndent', { clear = true })
+autocmd('Filetype', {
+  group = 'setIndent',
+  pattern = { 'cpp', 'c', 'h', 'go' },
+  command = 'setlocal shiftwidth=4 tabstop=4 noexpandtab'
+})
+
 -- Terminal settings:
 -- Open a Terminal on the right tab
 autocmd('CmdlineEnter', {
