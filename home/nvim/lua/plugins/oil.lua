@@ -1,6 +1,5 @@
 return {
   'stevearc/oil.nvim',
-  event = 'VeryLazy',
   opts = {
     experimental_watch_for_changes = true,
     skip_confirm_for_simple_edits = true,
