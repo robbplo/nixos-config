@@ -199,6 +199,7 @@ return {
         'yamlls',
         'hls',
         'clangd',
+        'basedpyright',
       }
 
       -- Call setup
