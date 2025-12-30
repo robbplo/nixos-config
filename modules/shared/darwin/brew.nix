@@ -9,6 +9,7 @@
       "felixkratz/formulae/borders"
       "felixkratz/formulae/sketchybar"
       "supabase/tab/supabase"
+      "uv"
       "ruff"
       "flake8"
       "mypy"
