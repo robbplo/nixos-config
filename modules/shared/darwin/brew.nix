@@ -8,6 +8,10 @@
       "dnsmasq"
       "felixkratz/formulae/borders"
       "felixkratz/formulae/sketchybar"
+      "supabase/tab/supabase"
+      "ruff"
+      "flake8"
+      "mypy"
     ];
 
     casks = [
@@ -26,6 +30,7 @@
       "raycast"
       "slack"
       "spotify"
+      "utm"
     ];
   };
 }
