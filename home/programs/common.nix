@@ -17,7 +17,6 @@
       tldr
       hyperfine
       zellij
-      gemini-cli
 
       # GUI
       # todo: add to wayland module
