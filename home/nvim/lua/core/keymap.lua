@@ -16,6 +16,14 @@ local function cmd(command)
   return '<cmd>' .. command .. '<cr>'
 end
 
+local function buf_cmd(command)
+  return function()
+    if vim.bo.filetype ~= 'sidekick_terminal' then
+      vim.cmd(command)
+    end
+  end
+end
+
 -- Space as leader
 vim.g.mapleader = " "
 
@@ -37,12 +45,12 @@ nmap('<S-Down>', cmd('resize +1'))
 
 -- Barbar
 ---- Move to previous/next buffer
-map('<A-h>', cmd('BufferPrevious'))
-map('<A-l>', cmd('BufferNext'))
-map('<A-Left>', cmd('BufferPrevious'))
-map('<A-Right>', cmd('BufferNext'))
-map('[b', cmd('BufferPrevious'))
-map(']b', cmd('BufferNext'))
+vim.keymap.set('', '<A-h>', buf_cmd('BufferPrevious'), { noremap = true })
+vim.keymap.set('', '<A-l>', buf_cmd('BufferNext'), { noremap = true })
+vim.keymap.set('', '<A-Left>', buf_cmd('BufferPrevious'), { noremap = true })
+vim.keymap.set('', '<A-Right>', buf_cmd('BufferNext'), { noremap = true })
+vim.keymap.set('', '[b', buf_cmd('BufferPrevious'), { noremap = true })
+vim.keymap.set('', ']b', buf_cmd('BufferNext'), { noremap = true })
 ---- Goto buffer in position...
 map('<A-1>', cmd('BufferGoto 1'))
 map('<A-2>', cmd('BufferGoto 2'))
