@@ -8,7 +8,7 @@
       "dnsmasq"
       "felixkratz/formulae/borders"
       "felixkratz/formulae/sketchybar"
-      "supabase/tab/supabase"
+      "supabase/tap/supabase"
       "uv"
       "ruff"
       "flake8"
