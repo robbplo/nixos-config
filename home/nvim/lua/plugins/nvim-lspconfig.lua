@@ -199,7 +199,7 @@ return {
         'yamlls',
         'hls',
         'clangd',
-        'basedpyright',
+        'ty',
       }
 
       -- Call setup
