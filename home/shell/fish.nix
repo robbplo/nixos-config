@@ -23,6 +23,7 @@
       fish_add_path ~/.mix/escripts
       fish_add_path ~/.config/composer/vendor/bin
       fish_add_path /opt/homebrew/opt/node@20/bin
+      fish_add_path /opt/homebrew/opt/php@8.1/bin
 
       # use fish for nix shell
       nix-your-shell fish | source &

@@ -1,6 +1,7 @@
 return {
   {
     'srcery-colors/srcery-vim',
+    tag = 'v2.1.0',
     priority = 1000,
     init = function()
       vim.opt.termguicolors = true
