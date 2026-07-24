@@ -31,8 +31,6 @@ return {
       opts = {},
     },
     'folke/lazydev.nvim',
-    -- AI Autocomplete
-    'Exafunction/codeium.nvim',
   },
   --- @module 'blink.cmp'
   --- @type blink.cmp.Config
@@ -90,11 +88,9 @@ return {
         'snippets',
         'lazydev',
         'buffer',
-        'codeium',
       },
       providers = {
         lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-        codeium = { name = 'Codeium', module = 'codeium.blink', async = true },
       },
     },
 
