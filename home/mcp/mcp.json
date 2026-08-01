@@ -1,4 +1,7 @@
 {
+  "settings": {
+    "mcpFooterStatus": "off"
+  },
   "mcpServers": {
     "playwright": {
       "command": "npx",
