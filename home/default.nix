@@ -6,6 +6,8 @@
     ./programs
     ./shell
     ./nvim
+    ./pi
+    ./mcp
     ./fonts
   ];
 

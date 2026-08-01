@@ -17,6 +17,8 @@ This is my personal Nix configuration repository managing multiple machines acro
 │   ├── ags/             # Aylur's GTK Shell (Linux desktop)
 │   ├── hypr/            # Hyprland window manager config
 │   ├── nvim/            # Neovim configuration
+│   ├── mcp/             # MCP server configuration
+│   ├── pi/              # Pi settings and extensions
 │   ├── programs/        # Common programs (git, direnv, ssh)
 │   ├── shell/           # Shell configuration (fish, kitty)
 │   ├── wofi/            # Application launcher for Hyprland

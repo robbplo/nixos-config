@@ -1,8 +1,22 @@
+{ config, lib, ... }:
+
 {
+  system.activationScripts.homebrew.text = lib.mkBefore ''
+    # Homebrew 6 requires explicit trust for third-party taps.
+    if [ -x "${config.homebrew.brewPrefix}/brew" ]; then
+      echo >&2 "Trusting third-party Homebrew taps..."
+      sudo --user=${lib.escapeShellArg config.homebrew.user} --set-home \
+        "${config.homebrew.brewPrefix}/brew" trust felixkratz/formulae supabase/tap
+    fi
+  '';
+
   homebrew = {
     enable = true;
 
-    taps = [ ];
+    taps = [
+      "felixkratz/formulae"
+      "supabase/tap"
+    ];
 
     brews = [
       "dnsmasq"
