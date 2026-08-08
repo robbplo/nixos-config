@@ -1,5 +1,6 @@
 {
   lexical,
+  zellij-nixpkgs,
   pkgs,
   lib,
   ...
@@ -16,7 +17,6 @@
       lsof
       tldr
       hyperfine
-      zellij
 
       # GUI
       # todo: add to wayland module
@@ -93,7 +93,10 @@
       redis
       clickhouse
     ])
-    ++ [ lexical.packages.${pkgs.system}.default ]
+    ++ [
+      lexical.packages.${pkgs.system}.default
+      zellij-nixpkgs.legacyPackages.${pkgs.system}.zellij
+    ]
     ++ (lib.optionals pkgs.stdenv.isLinux (with pkgs; [ wl-mirror ]));
 
   programs = {
