@@ -27,7 +27,6 @@
       "ruff"
       "flake8"
       "mypy"
-      "node@20"
     ];
 
     casks = [
