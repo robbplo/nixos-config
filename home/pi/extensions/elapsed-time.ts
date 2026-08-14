@@ -105,7 +105,11 @@ export default function elapsedTimeExtension(pi: ExtensionAPI) {
           let left = stats.join(" ");
           const model = ctx.model?.id ?? "no-model";
           const thinking = ctx.model?.reasoning ? ` • ${ctx.thinkingLevel}` : "";
-          const right = theme.fg("dim", `${model}${thinking}`);
+          const extensionStatuses = footerData.getExtensionStatuses();
+          const fastModeStatus = extensionStatuses.get("fast-mode");
+          const right = `${theme.fg("dim", `${model}${thinking}`)}${
+            fastModeStatus ? ` • ${fastModeStatus}` : ""
+          }`;
           const availableLeft = Math.max(0, width - visibleWidth(right) - 2);
           left = truncateToWidth(left, availableLeft, "");
           const padding = " ".repeat(Math.max(1, width - visibleWidth(left) - visibleWidth(right)));
@@ -121,9 +125,11 @@ export default function elapsedTimeExtension(pi: ExtensionAPI) {
             statsLine,
           ];
 
-          const extensionStatuses = [...footerData.getExtensionStatuses().values()];
-          if (extensionStatuses.length > 0) {
-            lines.push(truncateToWidth(extensionStatuses.join(" "), width, theme.fg("dim", "...")));
+          const remainingStatuses = [...extensionStatuses.entries()]
+            .filter(([id]) => id !== "fast-mode")
+            .map(([, status]) => status);
+          if (remainingStatuses.length > 0) {
+            lines.push(truncateToWidth(remainingStatuses.join(" "), width, theme.fg("dim", "...")));
           }
 
           return lines;
