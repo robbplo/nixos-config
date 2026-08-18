@@ -1,0 +1,79 @@
+" Leader ---------------------------------------------------------------------
+let mapleader = " "
+
+" Match Neovim's mapping timeout.
+set timeout
+set timeoutlen=500
+
+" Prevent Space's default motion while retaining <leader> mappings.
+nnoremap <Space> <Nop>
+xnoremap <Space> <Nop>
+
+" Editor behavior ------------------------------------------------------------
+set number
+set relativenumber
+set ignorecase
+set nosmartcase
+set ideajoin
+
+" Built-in IdeaVim extensions corresponding to the Neovim plugins.
+set surround
+set commentary
+set highlightedyank
+set argtextobj
+
+" Clipboard ------------------------------------------------------------------
+nnoremap <leader>y "+y
+xnoremap <leader>y "+y
+nnoremap <leader>p "+P
+xnoremap <leader>p "+P
+nnoremap <leader>cf :action CopyPaths<CR>
+
+" Project/files: Oil and Telescope ------------------------------------------
+nnoremap <leader>e :action ActivateProjectToolWindow<CR>
+nnoremap <leader>E :action ActivateProjectToolWindow<CR>
+
+nnoremap <leader>T  :action SearchEverywhere<CR>
+nnoremap <leader>tp :action GotoFile<CR>
+nnoremap <leader>tP :action GotoFile<CR>
+nnoremap <leader>tf :action FindInPath<CR>
+nnoremap <leader>tF :action FindInPath<CR>
+nnoremap <leader>tt :action RecentFiles<CR>
+
+" Editor tabs: Barbar --------------------------------------------------------
+nnoremap <A-h>     :action PreviousTab<CR>
+noremap <A-l>     :action NextTab<CR>
+noremap <A-Left>  :action PreviousTab<CR>
+noremap <A-Right> :action NextTab<CR>
+noremap [b :action PreviousTab<CR>
+noremap ]b :action NextTab<CR>
+
+nnoremap <A-c> :action CloseContent<CR>
+nnoremap <A-C> :action CloseAllEditorsButActive<CR>
+nnoremap <leader>bd :action CloseContent<CR>
+nnoremap <leader>bD :action CloseAllEditorsButActive<CR>
+
+" Code intelligence: LSP -----------------------------------------------------
+nnoremap gD :action GotoTypeDeclaration<CR>
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap K  :action QuickJavaDoc<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gr :action FindUsages<CR>
+nnoremap gl :action ActivateProblemsView<CR>
+nnoremap <C-k> :action ParameterInfo<CR>
+nnoremap <leader>D  :action GotoTypeDeclaration<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>ca :action ShowIntentionActions<CR>
+
+" Diagnostics: Trouble -------------------------------------------------------
+noremap <leader>xx :action ActivateProblemsView<CR>
+noremap <leader>xd :action ActivateProblemsView<CR>
+noremap <leader>xn :action GotoNextError<CR>
+noremap <leader>xp :action GotoPreviousError<CR>
+
+" Git: Gitsigns --------------------------------------------------------------
+noremap [g :action VcsShowPrevChangeMarker<CR>
+noremap ]g :action VcsShowNextChangeMarker<CR>
+noremap <leader>gp :action VcsShowPrevChangeMarker<CR>
+noremap <leader>gn :action VcsShowNextChangeMarker<CR>
+noremap <leader>gb :action Annotate<CR>

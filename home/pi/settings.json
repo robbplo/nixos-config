@@ -1,3 +1,11 @@
 {
-  "theme": "dark"
+  "theme": "dark",
+  "lastChangelogVersion": "0.84.2",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.6-sol",
+  "enabledModels": [
+    "openai-codex/gpt-5.6-luna",
+    "openai-codex/gpt-5.6-sol"
+  ],
+  "tuiMode": "fullscreen"
 }

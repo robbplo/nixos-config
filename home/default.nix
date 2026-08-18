@@ -6,6 +6,7 @@
     ./programs
     ./shell
     ./nvim
+    ./ideavim
     ./pi
     ./mcp
     ./fonts
