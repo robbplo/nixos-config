@@ -1,12 +1,13 @@
 {
   imports = [
+    ./fonts
+    ./ideavim
+    ./mcp
+    ./nvim
+    ./pi
     ./programs
     ./shell
-    ./nvim
-    ./ideavim
-    ./pi
-    ./mcp
-    ./fonts
+    ./zellij
   ];
 
   # Home Manager needs a bit of information about you and the

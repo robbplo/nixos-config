@@ -1,15 +1,16 @@
 {
   imports = [
     ./ags
+    ./fonts
     ./hypr
-    ./wofi
+    ./ideavim
+    ./mcp
+    ./nvim
+    ./pi
     ./programs
     ./shell
-    ./nvim
-    ./ideavim
-    ./pi
-    ./mcp
-    ./fonts
+    ./wofi
+    ./zellij
   ];
 
   # Home Manager needs a bit of information about you and the
