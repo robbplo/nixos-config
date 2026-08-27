@@ -29,9 +29,8 @@
       stylelint
       stylua
     ];
+    initLua = builtins.readFile ./init.lua;
   };
-  home.file.".config/nvim/init.lua".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/home/nvim/init.lua";
   home.file.".config/nvim/lua" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos-config/home/nvim/lua";
     recursive = true;

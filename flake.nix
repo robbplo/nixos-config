@@ -2,7 +2,7 @@
   description = "NixOS Configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     zellij-nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -17,11 +17,11 @@
     nix-ld.inputs.nixpkgs.follows = "nixpkgs";
 
     # MacOS
-    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.05";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     # Fix an issue where home-manager apps are not indexed on Spotlight
+    # Keep its Common Lisp build isolated from nixpkgs-unstable regressions.
     mac-app-util.url = "github:hraban/mac-app-util";
-    mac-app-util.inputs.nixpkgs.follows = "nixpkgs";
 
     # Run NixOS in WSL
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";

@@ -1,6 +1,5 @@
 {
   lexical,
-  zellij-nixpkgs,
   pkgs,
   lib,
   ...
@@ -13,10 +12,10 @@
       nix-prefetch-git
       moar
       parallel
-      neofetch
       lsof
       tldr
       hyperfine
+      zellij
 
       # GUI
       # todo: add to wayland module
@@ -95,7 +94,6 @@
     ])
     ++ [
       lexical.packages.${pkgs.system}.default
-      zellij-nixpkgs.legacyPackages.${pkgs.system}.zellij
     ]
     ++ (lib.optionals pkgs.stdenv.isLinux (with pkgs; [ wl-mirror ]));
 
