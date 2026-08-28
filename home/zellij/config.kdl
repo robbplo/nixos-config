@@ -382,7 +382,7 @@ plugins {
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
 load_plugins {
-    zellij:link
+    // zellij:link
 }
 web_client {
     font "monospace"
@@ -460,14 +460,14 @@ default_mode "locked"
 //   - true (default, enabled)
 //   - false
 // 
-// pane_frames false
+pane_frames false
  
 // Set the pane frame style when pane_frames is enabled
 // Options:
 //   - full
 //   - titles (default)
 // 
-// pane_frame_style "titles"
+// pane_frame_style "full"
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
@@ -649,7 +649,7 @@ default_mode "locked"
 // Whether stacked panes display as a list with the expanded pane pinned to the bottom
 // Default: true
 // 
-// stacked_pane_list false
+stacked_pane_list false
  
 // Whether to show tips on startup
 // Default: true
@@ -683,7 +683,7 @@ mouse_hover_effects false
  
 // Whether to focus panes on mouse hover
 // default is false
-// focus_follows_mouse false
+focus_follows_mouse true
  
 // Whether clicking a pane to focus it also sends the click into the pane
 // default is false
