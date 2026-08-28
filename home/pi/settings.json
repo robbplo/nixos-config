@@ -1,6 +1,6 @@
 {
   "theme": "dark",
-  "lastChangelogVersion": "0.84.2",
+  "lastChangelogVersion": "0.84.3",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
   "enabledModels": [
@@ -10,5 +10,7 @@
   "tuiMode": "fullscreen",
   "packages": [
     "npm:pi-mcp-adapter"
-  ]
+  ],
+  "defaultThinkingLevel": "medium",
+  "showCacheMissNotices": true
 }
