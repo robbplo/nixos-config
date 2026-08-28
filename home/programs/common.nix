@@ -10,7 +10,7 @@
       # utils
       yq-go
       nix-prefetch-git
-      moar
+      moor
       parallel
       lsof
       tldr

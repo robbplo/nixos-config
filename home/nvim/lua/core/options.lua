@@ -14,6 +14,9 @@ vim.o.tabstop = 2
 vim.o.timeoutlen = 500
 vim.o.updatetime = 2000
 
+-- Zellij misinterprets Neovim's OSC 9;4 progress sequences as Kitty notifications.
+pcall(vim.api.nvim_del_augroup_by_name, 'nvim.progress')
+
 -- Prefer splitting to the bottom right
 vim.o.splitbelow = true
 vim.o.splitright = true

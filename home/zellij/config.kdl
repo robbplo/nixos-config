@@ -460,14 +460,14 @@ default_mode "locked"
 //   - true (default, enabled)
 //   - false
 // 
-pane_frames false
+pane_frames true
  
 // Set the pane frame style when pane_frames is enabled
 // Options:
 //   - full
 //   - titles (default)
 // 
-// pane_frame_style "full"
+pane_frame_style "full"
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
@@ -683,7 +683,7 @@ mouse_hover_effects false
  
 // Whether to focus panes on mouse hover
 // default is false
-focus_follows_mouse true
+focus_follows_mouse false
  
 // Whether clicking a pane to focus it also sends the click into the pane
 // default is false

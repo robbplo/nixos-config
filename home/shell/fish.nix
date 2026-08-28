@@ -27,8 +27,8 @@
       # use fish for nix shell
       nix-your-shell fish | source &
 
-      # moar as pager
-      set -x PAGER moar
+      # moor as pager
+      set -x PAGER moor
 
       # kuber completions because i'm too lazy to make a proper nix module
       # larger memory for zoxide
