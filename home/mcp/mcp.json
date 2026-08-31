@@ -13,6 +13,14 @@
     "supabase": {
       "type": "http",
       "url": "https://mcp.supabase.com/mcp?read_only=true&features=docs%2Caccount%2Cdatabase%2Cdebugging%2Cdevelopment%2Cfunctions%2Cbranching"
+    },
+    "clickup": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://mcp.clickup.com/mcp"
+      ]
     }
   }
 }

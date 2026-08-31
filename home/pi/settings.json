@@ -12,5 +12,9 @@
     "npm:pi-mcp-adapter"
   ],
   "defaultThinkingLevel": "medium",
-  "showCacheMissNotices": true
+  "showCacheMissNotices": true,
+  "modelThinkingLevels": {
+    "openai-codex/gpt-5.6-sol": "medium",
+    "openai-codex/gpt-5.6-luna": "medium"
+  }
 }
