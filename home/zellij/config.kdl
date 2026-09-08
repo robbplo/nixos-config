@@ -467,7 +467,7 @@ pane_frames true
 //   - full
 //   - titles (default)
 // 
-pane_frame_style "full"
+pane_frame_style "titles"
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
@@ -749,3 +749,6 @@ focus_follows_mouse false
 //   - "off" (do not forward notifications to the host terminal)
 // 
 // host_notification_protocol "auto"
+
+scroll_mode_sync false
+
