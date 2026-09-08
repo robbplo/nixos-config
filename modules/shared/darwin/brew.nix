@@ -33,7 +33,6 @@
       "1password"
       "ableton-live-intro@11"
       "aerospace"
-      "cursor"
       "discord"
       "google-chrome"
       "karabiner-elements"
