@@ -1,27 +1,19 @@
 -- Functional wrapper for mapping custom keybindings
 local function mapfun(mode)
-  return function(lhs, rhs, opts)
-    local options = { noremap = true }
-    if opts then
-      options = vim.tbl_extend("force", options, opts)
-    end
-    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-  end
+	return function(lhs, rhs, opts)
+		local options = { noremap = true }
+		if opts then
+			options = vim.tbl_extend("force", options, opts)
+		end
+		vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	end
 end
 
 local nmap = mapfun('n')
 local map = mapfun('')
 
 local function cmd(command)
-  return '<cmd>' .. command .. '<cr>'
-end
-
-local function buf_cmd(command)
-  return function()
-    if vim.bo.filetype ~= 'sidekick_terminal' then
-      vim.cmd(command)
-    end
-  end
+	return '<cmd>' .. command .. '<cr>'
 end
 
 -- Space as leader
@@ -45,12 +37,12 @@ nmap('<S-Down>', cmd('resize +1'))
 
 -- Barbar
 ---- Move to previous/next buffer
-vim.keymap.set('', '<A-h>', buf_cmd('BufferPrevious'), { noremap = true })
-vim.keymap.set('', '<A-l>', buf_cmd('BufferNext'), { noremap = true })
-vim.keymap.set('', '<A-Left>', buf_cmd('BufferPrevious'), { noremap = true })
-vim.keymap.set('', '<A-Right>', buf_cmd('BufferNext'), { noremap = true })
-vim.keymap.set('', '[b', buf_cmd('BufferPrevious'), { noremap = true })
-vim.keymap.set('', ']b', buf_cmd('BufferNext'), { noremap = true })
+vim.keymap.set('', '<A-h>', cmd('BufferPrevious'), { noremap = true })
+vim.keymap.set('', '<A-l>', cmd('BufferNext'), { noremap = true })
+vim.keymap.set('', '<A-Left>', cmd('BufferPrevious'), { noremap = true })
+vim.keymap.set('', '<A-Right>', cmd('BufferNext'), { noremap = true })
+vim.keymap.set('', '[b', cmd('BufferPrevious'), { noremap = true })
+vim.keymap.set('', ']b', cmd('BufferNext'), { noremap = true })
 ---- Goto buffer in position...
 map('<A-1>', cmd('BufferGoto 1'))
 map('<A-2>', cmd('BufferGoto 2'))
