@@ -9,6 +9,9 @@
     vimAlias = true;
     vimdiffAlias = true;
     extraPackages = with pkgs; [
+      # The rewritten nvim-treesitter uses the CLI to build parsers.
+      tree-sitter
+
       # Language servers
       bash-language-server
       typescript-language-server
