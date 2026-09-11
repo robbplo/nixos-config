@@ -14,6 +14,10 @@
       "type": "http",
       "url": "https://mcp.supabase.com/mcp?read_only=true&features=docs%2Caccount%2Cdatabase%2Cdebugging%2Cdevelopment%2Cfunctions%2Cbranching"
     },
+    "linear": {
+      "type": "http",
+      "url": "https://mcp.linear.app/mcp"
+    },
     "clickup": {
       "command": "npx",
       "args": [
