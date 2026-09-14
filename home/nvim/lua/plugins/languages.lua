@@ -9,4 +9,5 @@ return {
   { "joerdav/templ.vim" },
   { "gpanders/nvim-parinfer" },
   { "habamax/vim-godot" },
+  { 'MeanderingProgrammer/render-markdown.nvim' },
 }

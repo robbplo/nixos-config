@@ -123,6 +123,47 @@ return {
         return _augroups[client.id]
       end
 
+      -- Query gopls directly so an empty code-action response does not trigger the
+      -- notification emitted by vim.lsp.buf.code_action().
+      local function organize_gopls_imports(client, bufnr)
+        if client.name ~= 'gopls'
+            or client:is_stopped()
+            or not client:supports_method('textDocument/codeAction', bufnr) then
+          return
+        end
+
+        local params = vim.lsp.util.make_range_params(0, client.offset_encoding)
+        params.context = {
+          only = { 'source.organizeImports' },
+          diagnostics = {},
+        }
+
+        local response = client:request_sync('textDocument/codeAction', params, 1000, bufnr)
+        if not response or response.err or type(response.result) ~= 'table' then
+          return
+        end
+
+        for _, action in ipairs(response.result) do
+          if action.kind == 'source.organizeImports' and not action.disabled then
+            if not (action.edit or action.command) and client:supports_method('codeAction/resolve', bufnr) then
+              local resolved = client:request_sync('codeAction/resolve', action, 1000, bufnr)
+              if resolved and not resolved.err and resolved.result then
+                action = resolved.result
+              end
+            end
+
+            if action.edit then
+              vim.lsp.util.apply_workspace_edit(action.edit, client.offset_encoding)
+            end
+            if action.command then
+              local command = type(action.command) == 'table' and action.command or action
+              client:exec_cmd(command, { bufnr = bufnr })
+            end
+            return
+          end
+        end
+      end
+
       -- Whenever an LSP attaches to a buffer, we will run this function.
       --
       -- See `:help LspAttach` for more information about this autocmd event.
@@ -157,6 +198,8 @@ return {
               if not format_is_enabled then
                 return
               end
+
+              organize_gopls_imports(client, bufnr)
 
               vim.lsp.buf.format {
                 async = false,
