@@ -6,8 +6,6 @@
 
 [credential "https://github.com"]
 	helper = !gh auth git-credential
-[credential "https://gitlab.betty.services"]
-	helper = !glab auth git-credential
 
 ### Delta config
 [core]
