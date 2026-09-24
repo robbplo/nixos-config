@@ -94,6 +94,8 @@ keybinds clear-defaults=true {
         bind "Alt down" { MoveFocus "down"; SwitchToMode "locked"; }
         bind "Alt up" { MoveFocus "up"; SwitchToMode "locked"; }
         bind "Alt right" { MoveFocusOrTab "right"; SwitchToMode "locked"; }
+        bind "c" { CopyLastCommandOutput; }
+        bind "l" { Clear; }
         bind "e" { EditScrollback; SwitchToMode "locked"; }
         bind "f" { SwitchToMode "entersearch"; SearchInput 0; }
         bind "Alt h" { MoveFocusOrTab "left"; SwitchToMode "locked"; }
@@ -170,6 +172,7 @@ keybinds clear-defaults=true {
         bind "Ctrl Alt j" { MoveFocus "down"; }
         bind "Ctrl Alt k" { MoveFocus "up"; }
         bind "Ctrl Alt l" { MoveFocusOrTab "right"; }
+        bind "Ctrl Alt c" { Clear; }
         bind "Ctrl Alt n" { NewPane; }
         bind "Ctrl Alt o" { MoveTab "right"; }
         bind "Ctrl Alt p" { TogglePaneInGroup; }
@@ -434,7 +437,7 @@ default_mode "locked"
 // The name of the default layout to load on startup
 // Default: "default"
 // 
-default_layout "compact"
+default_layout "default"
  
 // The folder in which Zellij will look for layouts
 // (Requires restart)
@@ -467,7 +470,7 @@ pane_frames true
 //   - full
 //   - titles (default)
 // 
-pane_frame_style "titles"
+pane_frame_style "full"
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
