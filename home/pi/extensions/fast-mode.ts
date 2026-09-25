@@ -13,7 +13,7 @@ const STATE_FILE = join(getAgentDir(), "fast-mode.json");
 
 // Keep this list explicit so newly released models fall back safely until their
 // Fast mode support has been verified.
-const SUPPORTED_MODEL_PREFIXES = ["gpt-5.4", "gpt-5.5", "gpt-5.6"] as const;
+const SUPPORTED_MODEL_PREFIXES = ["gpt-5.4", "gpt-5.5", "gpt-5.6", "gpt-6"] as const;
 
 function supportsFastMode(model: Model<Api> | undefined): boolean {
   if (!model) return false;
