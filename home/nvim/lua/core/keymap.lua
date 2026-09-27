@@ -35,33 +35,6 @@ nmap('<S-Right>', cmd('vertical resize +1'))
 nmap('<S-Up>', cmd('resize -1'))
 nmap('<S-Down>', cmd('resize +1'))
 
--- Barbar
----- Move to previous/next buffer
-vim.keymap.set('', '<A-h>', cmd('BufferPrevious'), { noremap = true })
-vim.keymap.set('', '<A-l>', cmd('BufferNext'), { noremap = true })
-vim.keymap.set('', '<A-Left>', cmd('BufferPrevious'), { noremap = true })
-vim.keymap.set('', '<A-Right>', cmd('BufferNext'), { noremap = true })
-vim.keymap.set('', '[b', cmd('BufferPrevious'), { noremap = true })
-vim.keymap.set('', ']b', cmd('BufferNext'), { noremap = true })
----- Goto buffer in position...
-map('<A-1>', cmd('BufferGoto 1'))
-map('<A-2>', cmd('BufferGoto 2'))
-map('<A-3>', cmd('BufferGoto 3'))
-map('<A-4>', cmd('BufferGoto 4'))
-map('<A-5>', cmd('BufferGoto 5'))
-map('<A-6>', cmd('BufferGoto 6'))
-map('<A-7>', cmd('BufferGoto 7'))
-map('<A-8>', cmd('BufferGoto 8'))
-map('<A-9>', cmd('BufferGoto 9'))
-map('<A-0>', cmd('BufferLast'))
----- Pin/unpin buffer
-map('<A-p>', cmd('BufferPin'))
----- Close buffer
-map('<A-c>', cmd('BufferClose'))
-map('<A-C>', cmd('BufferCloseAllButCurrentOrPinned'))
-map('<leader>bd', cmd('BufferClose'))
-map('<leader>bD', cmd('BufferCloseAllButCurrentOrPinned'))
-
 -- Trouble
 nmap('<leader>xx', cmd('Trouble diagnostics toggle'))
 nmap('<leader>xd', cmd('Trouble diagnostics filter.buf=0 toggle'))
@@ -97,10 +70,10 @@ for method, mappings in pairs({
   end
 end
 
-vim.keymap.set('n', '<leader>a', function()
+vim.keymap.set('n', '<leader>w', function()
   require('nvim-treesitter-textobjects.swap').swap_next('@parameter.inner')
 end, { desc = 'Swap with next parameter' })
-vim.keymap.set('n', '<leader>A', function()
+vim.keymap.set('n', '<leader>W', function()
   require('nvim-treesitter-textobjects.swap').swap_previous('@parameter.inner')
 end, { desc = 'Swap with previous parameter' })
 

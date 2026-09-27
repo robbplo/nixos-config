@@ -83,7 +83,9 @@
     keybindings = {
       # unmap new tab creation
       "kitty_mod+t" = "no_op";
+      "kitty_mod+n" = "no_op";
       "cmd+t" = "no_op";
+      "cmd+n" = "no_op";
     };
   };
 }

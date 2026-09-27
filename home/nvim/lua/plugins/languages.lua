@@ -12,7 +12,6 @@ return {
   {
     'MeanderingProgrammer/render-markdown.nvim',
     opts = {
-      preset = 'obsidian',
       completions = {
         blink = { enabled = true }
       }

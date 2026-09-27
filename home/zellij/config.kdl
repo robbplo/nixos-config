@@ -177,7 +177,8 @@ keybinds clear-defaults=true {
         bind "Ctrl Alt [" { PreviousSwapLayout; }
         bind "Ctrl Alt ]" { NextSwapLayout; }
         bind "Ctrl Alt c" { Clear; }
-        bind "Ctrl Alt p" { NewPane; }
+        bind "Ctrl Alt v" { NewPane; }
+        bind "Ctrl Alt s" { NewPane "stacked"; }
         bind "Ctrl Alt +" { Resize "Increase"; }
         bind "Ctrl Alt -" { Resize "Decrease"; }
         bind "Ctrl Alt =" { Resize "Increase"; }
@@ -473,7 +474,7 @@ pane_frames true
 //   - full
 //   - titles (default)
 // 
-pane_frame_style "full"
+pane_frame_style "titles"
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
