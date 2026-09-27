@@ -16,6 +16,8 @@
       set fish_greeting
 
       # paths
+      fish_add_path ~/.local/bin
+      fish_add_path ~/.go/bin
       fish_add_path ~/.cargo/bin
       fish_add_path ~/.bun/bin
       fish_add_path /opt/homebrew/bin
@@ -30,7 +32,6 @@
       # moor as pager
       set -x PAGER moor
 
-      # kuber completions because i'm too lazy to make a proper nix module
       # larger memory for zoxide
       set -x _ZO_MAXAGE 100000
     '';
@@ -67,5 +68,4 @@
     source = ./fish_functions;
     recursive = true;
   };
-  home.file.".config/fish/completions/wash.fish".source = ./fish_completions/wash.fish;
 }
