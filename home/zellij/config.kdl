@@ -84,6 +84,8 @@ keybinds clear-defaults=true {
         bind "j" { MovePane "down"; }
         bind "k" { MovePane "up"; }
         bind "l" { MovePane "right"; }
+        bind "(" { MoveTab "left"; }
+        bind ")" { MoveTab "right"; }
         bind "m" { SwitchToMode "normal"; }
         bind "n" { MovePane; }
         bind "p" { MovePaneBackwards; }
@@ -162,22 +164,23 @@ keybinds clear-defaults=true {
         bind "Ctrl Alt down" { MoveFocus "down"; }
         bind "Ctrl Alt up" { MoveFocus "up"; }
         bind "Ctrl Alt right" { MoveFocusOrTab "right"; }
-        bind "Ctrl Alt +" { Resize "Increase"; }
-        bind "Ctrl Alt -" { Resize "Decrease"; }
-        bind "Ctrl Alt =" { Resize "Increase"; }
-        bind "Ctrl Alt [" { PreviousSwapLayout; }
-        bind "Ctrl Alt ]" { NextSwapLayout; }
         bind "Ctrl Alt h" { MoveFocusOrTab "left"; }
-        bind "Ctrl Alt i" { MoveTab "left"; }
         bind "Ctrl Alt j" { MoveFocus "down"; }
         bind "Ctrl Alt k" { MoveFocus "up"; }
         bind "Ctrl Alt l" { MoveFocusOrTab "right"; }
-        bind "Ctrl Alt c" { Clear; }
-        bind "Ctrl Alt n" { NewPane; }
-        bind "Ctrl Alt o" { MoveTab "right"; }
-        bind "Ctrl Alt p" { TogglePaneInGroup; }
-        bind "Ctrl Alt Shift p" { ToggleGroupMarking; }
+        bind "Ctrl Alt n" { MoveFocusOrTab "left"; }
+        bind "Ctrl Alt e" { MoveFocus "down"; }
+        bind "Ctrl Alt i" { MoveFocus "up"; }
+        bind "Ctrl Alt o" { MoveFocusOrTab "right"; }
+
         bind "Ctrl Alt enter" { ToggleFloatingPanes; }
+        bind "Ctrl Alt [" { PreviousSwapLayout; }
+        bind "Ctrl Alt ]" { NextSwapLayout; }
+        bind "Ctrl Alt c" { Clear; }
+        bind "Ctrl Alt p" { NewPane; }
+        bind "Ctrl Alt +" { Resize "Increase"; }
+        bind "Ctrl Alt -" { Resize "Decrease"; }
+        bind "Ctrl Alt =" { Resize "Increase"; }
     }
     shared_except "locked" "renametab" "renamepane" {
         bind "Ctrl q" { Quit; }
