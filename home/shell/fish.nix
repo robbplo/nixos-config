@@ -55,13 +55,8 @@
       doco = "docker-compose";
 
       ## Utility
-      paste = "wl-paste";
-      p = "wl-paste";
-      copy = "wl-copy";
-      c = "wl-copy";
-      hyx = "hyprctl dispatch exec --";
-      k = "kubectl";
-      lzd = "lazydocker";
+      p = "pbpaste";
+      c = "pbcopy";
     };
   };
   home.file.".config/fish/functions" = {
