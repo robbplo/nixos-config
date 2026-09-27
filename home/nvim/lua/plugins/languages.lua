@@ -9,7 +9,13 @@ return {
   { "joerdav/templ.vim" },
   { "gpanders/nvim-parinfer" },
   { "habamax/vim-godot" },
-  { 'MeanderingProgrammer/render-markdown.nvim',
-  opts = {
-    }},
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    opts = {
+      preset = 'obsidian',
+      completions = {
+        blink = { enabled = true }
+      }
+    }
+  },
 }
