@@ -1,6 +1,6 @@
 {
   "theme": "dark",
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "1.0.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6-astra",
   "enabledModels": [
@@ -9,9 +9,7 @@
     "openai-codex/gpt-6-sol"
   ],
   "tuiMode": "fullscreen",
-  "packages": [
-    "npm:pi-mcp-adapter"
-  ],
+  "packages": [],
   "defaultThinkingLevel": "medium",
   "showCacheMissNotices": true,
   "modelThinkingLevels": {
