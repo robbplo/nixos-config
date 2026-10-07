@@ -9,7 +9,9 @@
     "openai-codex/gpt-6-sol"
   ],
   "tuiMode": "fullscreen",
-  "packages": [],
+  "packages": [
+    "npm:pi-web-access"
+  ],
   "defaultThinkingLevel": "medium",
   "showCacheMissNotices": true,
   "modelThinkingLevels": {

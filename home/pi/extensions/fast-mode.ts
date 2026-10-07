@@ -11,15 +11,15 @@ const STATUS_ID = "fast-mode";
 const FAST_SERVICE_TIER = "priority";
 const STATE_FILE = join(getAgentDir(), "fast-mode.json");
 
-// Keep this list explicit so newly released models fall back safely until their
-// Fast mode support has been verified.
-const SUPPORTED_MODEL_PREFIXES = ["gpt-5.4", "gpt-5.5", "gpt-5.6", "gpt-6", "gpt-6.1"] as const;
+// This is a request eligibility filter, not a guarantee of model or account
+// support. The server decides whether priority processing is available.
+const CANDIDATE_MODEL_PREFIXES = ["gpt"] as const;
 
-function supportsFastMode(model: Model<Api> | undefined): boolean {
+function canRequestFastMode(model: Model<Api> | undefined): boolean {
   if (!model) return false;
 
   const isOpenAIProvider = model.provider === "openai" || model.provider === "openai-codex";
-  const isSupportedModel = SUPPORTED_MODEL_PREFIXES.some(
+  const isSupportedModel = CANDIDATE_MODEL_PREFIXES.some(
     (prefix) => model.id === prefix || model.id.startsWith(`${prefix}-`),
   );
 
@@ -53,6 +53,11 @@ async function saveEnabledState(enabled: boolean): Promise<void> {
   }
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+/** Toggle persisted priority requests without altering provider-reported billing. */
 export default async function fastModeExtension(pi: ExtensionAPI) {
   let enabled = await loadEnabledState();
 
@@ -81,12 +86,10 @@ export default async function fastModeExtension(pi: ExtensionAPI) {
     },
   });
 
-  pi.on("session_start", async (_event, ctx) => {
-    updateStatus(ctx);
-  });
+  pi.on("session_start", async (_event, ctx) => updateStatus(ctx));
 
   pi.on("before_agent_start", async (_event, ctx) => {
-    if (!enabled || supportsFastMode(ctx.model)) return;
+    if (!enabled || canRequestFastMode(ctx.model)) return;
 
     const model = ctx.model ? `${ctx.model.provider}/${ctx.model.id}` : "the selected model";
     ctx.ui.notify(
@@ -96,14 +99,13 @@ export default async function fastModeExtension(pi: ExtensionAPI) {
   });
 
   pi.on("before_provider_request", (event, ctx) => {
-    if (!enabled || !supportsFastMode(ctx.model)) return;
-    if (typeof event.payload !== "object" || event.payload === null || Array.isArray(event.payload)) {
-      return;
-    }
+    if (!enabled || !canRequestFastMode(ctx.model) || !ctx.model) return;
+    if (!isRecord(event.payload)) return;
 
     return {
       ...event.payload,
       service_tier: FAST_SERVICE_TIER,
     };
   });
+
 }
