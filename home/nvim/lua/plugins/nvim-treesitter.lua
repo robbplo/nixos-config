@@ -33,7 +33,7 @@ return {
 
         local function enable()
           if not vim.api.nvim_buf_is_valid(event.buf)
-            or vim.treesitter.language.get_lang(vim.bo[event.buf].filetype) ~= lang then
+              or vim.treesitter.language.get_lang(vim.bo[event.buf].filetype) ~= lang then
             return
           end
           -- Some filetypes have no parser; keep their standard highlighting and indent.
@@ -43,7 +43,7 @@ return {
         end
 
         if vim.tbl_contains(treesitter.get_available(), lang)
-          and not vim.tbl_contains(treesitter.get_installed(), lang) then
+            and not vim.tbl_contains(treesitter.get_installed(), lang) then
           treesitter.install({ lang }):await(vim.schedule_wrap(enable))
         else
           enable()

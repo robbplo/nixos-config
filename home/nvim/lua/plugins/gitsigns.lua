@@ -1,6 +1,7 @@
 return {
   'lewis6991/gitsigns.nvim',
   dependencies = { 'nvim-lua/plenary.nvim' },
+  event = 'VimEnter',
   opts = {
     signs                        = {
       add          = { text = '┃' },
@@ -36,5 +37,42 @@ return {
       row = 0,
       col = 1
     }
+  },
+  keys = {
+    {
+      '<leader>gp',
+      function() require('gitsigns').prev_hunk() end,
+      desc = "Gitsigns previous hunk",
+    },
+    {
+      '<leader>gn',
+      function() require('gitsigns').next_hunk() end,
+      desc = "Gitsigns next hunk",
+    },
+    {
+      '[g',
+      function() require('gitsigns').prev_hunk() end,
+      desc = "Gitsigns previous hunk",
+    },
+    {
+      ']g',
+      function() require('gitsigns').next_hunk() end,
+      desc = "Gitsigns next hunk",
+    },
+    {
+      '<leader>ga',
+      function() require('gitsigns').stage_hunk() end,
+      desc = "Gitsigns stage hunk",
+    },
+    {
+      '<leader>gd',
+      function() require('gitsigns').diffthis() end,
+      desc = "Gitsigns diff",
+    },
+    {
+      '<leader>gr',
+      function() require('gitsigns').reset_hunk() end,
+      desc = "Gitsigns reset hunk",
+    },
   }
 }

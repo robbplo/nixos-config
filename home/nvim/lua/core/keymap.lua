@@ -81,24 +81,4 @@ end, { desc = 'Swap with previous parameter' })
 nmap('<leader>e', cmd('Oil'))
 nmap('<leader>E', cmd('Oil .'))
 
--- Telescope
-nmap('<leader>T', cmd('Telescope'))
-nmap('<leader>tt', cmd('Telescope resume'))
-nmap('<leader>tp', cmd('Telescope find_files'))
-nmap('<leader>tP', cmd('lua require("telescope.builtin").find_files({ hidden = true, no_ignore = true})'))
-nmap('<leader>tf', cmd('Telescope live_grep'))
-nmap('<leader>tF', cmd('lua require("telescope.builtin").live_grep({ no_ignore = true})'))
 
--- Git
-nmap('<leader>gp', cmd('Gitsigns prev_hunk'))
-nmap('<leader>gn', cmd('Gitsigns next_hunk'))
-nmap('[g', cmd('Gitsigns prev_hunk'))
-nmap(']g', cmd('Gitsigns next_hunk'))
-nmap('<leader>ga', cmd('Gitsigns stage_hunk'))
-nmap('<leader>gb', cmd('Gitsigns blame_line'))
-nmap('<leader>gd', cmd('Gitsigns diffthis'))
-nmap('<leader>gr', cmd('Gitsigns reset_hunk'))
-
----- Telescope mappings
-nmap('<leader>gs', cmd('Telescope git_status'))
-nmap('<leader>gB', cmd('Telescope git_branches'))
