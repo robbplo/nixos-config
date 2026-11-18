@@ -1,16 +1,19 @@
 {
   "theme": "dark",
-  "lastChangelogVersion": "1.0.0",
+  "lastChangelogVersion": "1.4.0",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-6-astra",
+  "defaultModel": "gpt-6.1-terra",
   "enabledModels": [
     "openai-codex/gpt-6-astra",
     "openai-codex/gpt-6-luna",
-    "openai-codex/gpt-6-sol"
+    "openai-codex/gpt-6.1-sol",
+    "openai-codex/gpt-6.1-terra"
   ],
   "tuiMode": "fullscreen",
   "packages": [
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    "npm:pi-agent-browser-native",
+    "npm:@tintinweb/pi-subagents"
   ],
   "defaultThinkingLevel": "medium",
   "showCacheMissNotices": true,

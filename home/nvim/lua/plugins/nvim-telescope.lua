@@ -27,8 +27,13 @@ return {
     },
     {
       "<leader>tt",
-      function() require("telescope.builtin").pickers() end,
-      desc = "Telecope previous pickers",
+      function() require("telescope.builtin").resume() end,
+      desc = "Telecope resume",
+    },
+    {
+      "<leader>tb",
+      function() require("telescope.builtin").buffers() end,
+      desc = "Telecope buffer",
     },
     {
       "<leader>tp",

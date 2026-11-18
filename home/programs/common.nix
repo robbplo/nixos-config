@@ -63,12 +63,10 @@
       azure-cli
       awscli2
       rclone
-      supabase-cli
       terraform
 
       # javascript
       nodejs
-      bun
 
       # elixir
       beam.packages.erlang_28.erlang
