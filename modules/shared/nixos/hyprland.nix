@@ -3,14 +3,14 @@
   # Hyprland window manager
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   };
 
   # Hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.systemPackages = [ 
-    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+    inputs.rose-pine-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Enable cachix for Hyprland to avoid building it

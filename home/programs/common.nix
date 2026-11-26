@@ -91,9 +91,9 @@
       clickhouse
     ])
     ++ [
-      lexical.packages.${pkgs.system}.default
+      lexical.packages.${pkgs.stdenv.hostPlatform.system}.default
     ]
-    ++ (lib.optionals pkgs.stdenv.isLinux (with pkgs; [ wl-mirror ]));
+    ++ (lib.optionals pkgs.stdenv.hostPlatform.isLinux (with pkgs; [ wl-mirror ]));
 
   programs = {
     bat.enable = true;

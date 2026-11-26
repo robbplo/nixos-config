@@ -8,6 +8,8 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+    withPython3 = false;
+    withRuby = false;
     extraPackages = with pkgs; [
       # The rewritten nvim-treesitter uses the CLI to build parsers.
       tree-sitter
@@ -19,14 +21,14 @@
       rust-analyzer
       yaml-language-server
       docker-compose-language-service
-      dockerfile-language-server-nodejs
+      dockerfile-language-server
       lua-language-server
       gopls
       nixd
       haskell-language-server
 
       # Formatters
-      nixfmt-rfc-style
+      nixfmt
       biome
       shfmt
       stylelint

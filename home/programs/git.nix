@@ -8,8 +8,10 @@
 
   programs.git = {
     enable = true;
-    userName = "Robbin Ploeger";
-    userEmail = "robbplo@gmail.com";
+    settings.user = {
+      name = "Robbin Ploeger";
+      email = "robbplo@gmail.com";
+    };
     ignores = [
       ".worktrees/"
     ];
