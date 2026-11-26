@@ -69,8 +69,8 @@
       nodejs
 
       # elixir
-      beam.packages.erlang_28.erlang
-      beam.packages.erlang_28.elixir_1_18
+      beam.packages.erlang_29.erlang
+      beam.packages.erlang_29.elixir_1_20
 
       # snake_language
       python3
